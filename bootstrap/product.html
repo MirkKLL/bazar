@@ -153,18 +153,22 @@
                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                   <div class="thumbnail">
                      <img src="http://placehold.it/320x220" alt="">
-                     <div class="caption">
-                        <h4 class="pull-right">$24.99</h4>
+                     <div class="caption product_caption">
+                        <h4 class="pull-right">24.99 грн.</h4>
                         <h4><a href="#">First Product</a>
                         </h4>
                         <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
                      </div>
+
                      <div class="row">
-                        <div class="col-md-2">
-                           <button type="button" class="btn btn-info btn-sm pull-left"> <span class="glyphicon glyphicon-info-sign"></span>
+                        <div class="col-xs-2 col-sm-3 col-md-2">
+                           <button type="button" class="btn btn-info btn-sm pull-left" data-container="body" data-toggle="popover" data-placement="bottom" data-content="<b>Изготовлено:</b> сегодня<br> 
+                                 <b>Годен до:</b> 10,05,2016
+                                 "> 
+                              <span class="glyphicon glyphicon-info-sign"></span>
                            </button>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-xs-5 col-sm-5 col-md-6">
                            <div class="input-group input-group-sm">
                               <span class="input-group-btn">
                               <button class="btn btn-default btn-danger" type="button"><span class="glyphicon glyphicon-minus-sign"></span></button>
@@ -176,19 +180,20 @@
                            </div>
                            <!-- /input-group -->
                         </div>
-                        <div class="col-md-2"  style="padding:5px;">
-                           <span>кг.</span>
+                        <div class="col-xs-2 col-sm-2 col-md-2"  style="padding:5px;">
+                           <span><b> кг.</b></span>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-xs-2 col-sm-2 col-md-2">
                            <button type="button" class="btn btn-success btn-sm pull-right"> <span class="glyphicon glyphicon-shopping-cart"></span></button>
                         </div>
                      </div>
+
                   </div>
                </div>
                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                   <div class="thumbnail">
                      <img src="http://placehold.it/320x220" alt="">
-                     <div class="caption">
+                     <div class="caption product_caption">
                         <h4 class="pull-right">$64.99</h4>
                         <h4><a href="#">Second Product with very very long and strage name.</a>
                         </h4>
@@ -209,7 +214,7 @@
                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                   <div class="thumbnail">
                      <img src="http://placehold.it/320x220" alt="">
-                     <div class="caption">
+                     <div class="caption product_caption">
                         <h4 class="pull-right">$64.99</h4>
                         <h4><a href="#">Second Product</a>
                         </h4>
@@ -230,7 +235,7 @@
                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                   <div class="thumbnail">
                      <img src="http://placehold.it/320x220" alt="">
-                     <div class="caption">
+                     <div class="caption product_caption">
                         <h4 class="pull-right">$64.99</h4>
                         <h4><a href="#">Second Product</a>
                         </h4>
@@ -251,7 +256,7 @@
                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                   <div class="thumbnail">
                      <img src="http://placehold.it/320x220" alt="">
-                     <div class="caption">
+                     <div class="caption product_caption">
                         <h4 class="pull-right">$64.99</h4>
                         <h4><a href="#">Second Product</a>
                         </h4>
@@ -272,7 +277,7 @@
                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                   <div class="thumbnail">
                      <img src="http://placehold.it/320x220" alt="">
-                     <div class="caption">
+                     <div class="caption product_caption">
                         <h4 class="pull-right">$64.99</h4>
                         <h4><a href="#">Second Product</a>
                         </h4>
@@ -358,7 +363,12 @@
          $(document).ready(function(){
              $('[data-toggle="tooltip"]').tooltip({
                     'delay': { show: 100, hide: 300 }
-               });   
+               });  
+             $('[data-toggle="popover"]').popover({
+               'trigger': 'hover',
+               'placement': 'top',
+               'html':'true'
+            }); 
          });
       </script>
    </body>
