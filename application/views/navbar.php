@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Rynok</a>
+                <a class="navbar-brand" href="<?=base_url();?>">Rynok</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -27,9 +27,18 @@
                 </form>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="group.html"><span class="glyphicon glyphicon-info-sign"></span> Информ бюро</a>
+                    <li><a href="#"><span class="glyphicon glyphicon-info-sign"></span> Информ бюро</a>
                     </li>
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Войти</a>
+                    <li>
+                        <a href="#"><span class="glyphicon glyphicon-user"></span> 
+                        <?php if(empty($this->session->userdata('logged_in'))) { ?>
+                        Войти 
+                        <?php }else {
+                            $phone = $this->session->userdata('logged_in');
+                            $phone = $phone['phone'];
+                            echo $phone;
+                            } ?>
+                        </a>
                     </li>
                     <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> 108.5 грн</a>
                     </li>
