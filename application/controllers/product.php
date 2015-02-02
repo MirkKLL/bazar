@@ -6,6 +6,7 @@ class Product extends CI_Controller {
  	{
    		parent::__construct();
    		$this->load->model('product_model','',TRUE);
+   		$this->load->model('group_model','',TRUE);
  	}
 
 	public function index()
@@ -22,7 +23,8 @@ class Product extends CI_Controller {
 		$data['products'] = $this->get_products($group_id);
 		$this->load->view('header');
 		$this->load->view('navbar');
-		$this->load->view('breadcrumb');
+		$bred['bred'] = $this->group_model->get_name_by_id($group_id);
+		$this->load->view('breadcrumb', $bred);
 		$this->load->view('product', $data);
 		$this->load->view('footer');
 	}
