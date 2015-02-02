@@ -1,5 +1,4 @@
 <?php 
-ini_set('error_reporting', E_ALL);
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Product extends CI_Controller {
 

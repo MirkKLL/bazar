@@ -39,4 +39,25 @@ Class Group_model extends CI_Model
 		return false;
 	}
  }
+
+ public function get_name_by_id($group_id)
+ {
+ 	$group_id = intval($group_id);
+	$this -> db -> select('id, name');
+	$this -> db -> from('food__category');
+	$this -> db -> where('id', $group_id);
+
+	$query = $this -> db -> get();
+
+	if($query -> num_rows() > 0)
+	{
+		foreach ($query->result() as $key) {
+		 	return $key->name;
+		 }
+	}
+	else
+	{
+		return false;
+	}
+ }
 }

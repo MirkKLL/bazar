@@ -23,7 +23,8 @@ class Group extends CI_Controller {
 		$data['category'] =	$this->get_categories($group_id);
 		$this->load->view('header');
 		$this->load->view('navbar');
-		$this->load->view('breadcrumb');
+		$bred['bred']['active'] = $this->group_model->get_name_by_id($group_id);
+		$this->load->view('breadcrumb', $bred);
 		$this->load->view('group', $data);
 		$this->load->view('footer');
 	}
