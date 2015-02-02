@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Янв 30 2015 г., 00:57
+-- Время создания: Фев 02 2015 г., 19:58
 -- Версия сервера: 5.5.41-0ubuntu0.14.04.1
 -- Версия PHP: 5.5.9-1ubuntu4.5
 
@@ -14,8 +14,6 @@ SET time_zone = "+00:00";
 -- База данных: `baza`
 --
 DROP DATABASE `baza`;
-CREATE DATABASE IF NOT EXISTS `baza` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `baza`;
 
 -- --------------------------------------------------------
 
@@ -219,8 +217,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `role_id` int(3) unsigned NOT NULL DEFAULT '1' COMMENT '0 user',
   `blocked` tinyint(1) NOT NULL DEFAULT '0',
   `bonus` decimal(2,2) NOT NULL DEFAULT '0.00',
-  `notes` char(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `notes` char(255) DEFAULT NULL,
+  `password` varchar(256) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `phone`, `first_name`, `last_name`, `email`, `photo`, `role_id`, `blocked`, `bonus`, `notes`, `password`) VALUES
+(1, '0938787172', 'Yevgeniy', 'Sidelnikov', 'to.MegBeg@gmail.com', NULL, 3, 0, 0.00, NULL, '202cb962ac59075b964b07152d234b70');
 
 --
 -- Индексы сохранённых таблиц
@@ -324,4 +330,4 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
