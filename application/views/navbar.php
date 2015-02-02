@@ -30,7 +30,7 @@
                     <li><a href="#"><span class="glyphicon glyphicon-info-sign"></span> Информ бюро</a>
                     </li>
                     <li>
-                        <a href="#"><span class="glyphicon glyphicon-user"></span> 
+                        <a href="<?=site_url()?>/login"><span class="glyphicon glyphicon-user"></span> 
                         <?php if(empty($this->session->userdata('logged_in'))) { ?>
                         Войти 
                         <?php }else {
