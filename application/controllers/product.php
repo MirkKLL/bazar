@@ -51,7 +51,10 @@ class Product extends CI_Controller {
 
 	                     <div class="row">
 	                        <div class="col-xs-2 col-sm-3 col-md-2">
-	                           <button type="button" class="btn btn-info btn-sm pull-left" data-container="body" data-toggle="popover" data-placement="bottom" data-content="<b>Изготовлено:</b> сегодня<br> 
+	                           <button type="button" class="btn btn-info btn-sm pull-left" 
+	                           data-container="body" 
+	                           data-toggle="popover" data-placement="bottom" 
+	                           data-content="<b>Изготовлено:</b> сегодня<br> 
 	                                 <b>Годен до:</b> 10,05,2016
 	                                 "> 
 	                              <span class="glyphicon glyphicon-info-sign"></span>
@@ -73,7 +76,14 @@ class Product extends CI_Controller {
 	                           <span><b> кг.</b></span>
 	                        </div>
 	                        <div class="col-xs-2 col-sm-2 col-md-2">
-	                           <button type="button" class="btn btn-success btn-sm pull-right"> <span class="glyphicon glyphicon-shopping-cart"></span></button>
+	                           <button type="button" class="btn btn-success btn-sm pull-right add_to_cart" 
+	                           data-id = '.$id.'
+	                           data-name = '.$name.'
+	                           data-qty = "1"
+	                           data-price = "'.$price.'"
+
+
+	                           > <span class="glyphicon glyphicon-shopping-cart"></span></button>
 	                        </div>
 	                     </div>
 

@@ -55,10 +55,33 @@
     <script src="<?=base_url();?>bootstrap/js/bootstrap.min.js"></script>
      <script type="text/javascript">
       $(document).ready(function(){
-          $('[data-toggle="tooltip"]').tooltip({
-                 'delay': { show: 100, hide: 300 }
-            });   
-      });
+             $('[data-toggle="tooltip"]').tooltip({
+                    'delay': { show: 100, hide: 300 }
+               });  
+             $('[data-toggle="popover"]').popover({
+               'trigger': 'hover',
+               'placement': 'top',
+               'html':'true'
+            }); 
+             $('.add_to_cart').click(function(){
+                $.post(
+                      "http://localhost/index.php/ajax/add_item",
+                      {
+                        id: this.getAttribute('data-id'),
+                        name: this.getAttribute('data-name'),
+                        qty: this.getAttribute('data-qty'),
+                        price: this.getAttribute('data-price')
+                      },
+                      onAjaxSuccess
+                    );
+                     
+                    function onAjaxSuccess(data)
+                    {
+                      // Здесь мы получаем данные, отправленные сервером и выводим их на экран.
+                      alert(data);
+                    }
+             })
+         });
     </script>
 </body>
 

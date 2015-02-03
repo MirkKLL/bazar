@@ -1,6 +1,3 @@
-      <pre>
-      <?php var_dump($bred); ?>
-      </pre>
       <div class="container">
          <ol class="breadcrumb">
             <li><a href="<?=site_url();?>">Главная</a></li>

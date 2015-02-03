@@ -1,9 +1,13 @@
- body {
+         body {
          padding-top: 70px;
          }
          .product_caption {
          	height: 150px;
          	overflow: hidden;
+         }
+         .home_page .caption {
+            height: 85px;
+            overflow: hidden;
          }
          @media (min-width: 1170px) {
          .navbar-search {
