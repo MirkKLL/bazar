@@ -33,7 +33,7 @@ class Home extends CI_Controller {
 		              <img src="http://placehold.it/320x22'.$id.'" alt="'.$name.'" 
 		              style="height: 180px; width: 100%; display: block;" 
 		              data-toggle="tooltip" 
-		              data-placement="bottom" title="'.$description.'">
+		              data-placement="left" title="'.$description.'">
 		              <div class="caption text-center">
 		                <h3><a href="'.site_url().'/group/categories/'.$id.'">'.$name.'
 		                </a></h3>

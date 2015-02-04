@@ -7,22 +7,33 @@ class Ajax extends CI_Controller {
    		parent::__construct();
    		$this->load->model('product_model','',TRUE);
    		$this->load->model('group_model','',TRUE);
-   		$this->load->library('cart');
  	}
 
- 	public function add_item($value='')
+ 	public function add_item()
  	{
- 		print_r($_POST);
- 		return true;
- 		$data = array(
-               'id'      => 'sku_123ABC',
-               'qty'     => 1,
-               'price'   => 39.95,
-               'name'    => 'T-Shirt',
-               'options' => array('Size' => 'L', 'Color' => 'Red')
+ 		$cart = $this->cart->contents();
+ 		$id = intval($_POST["id"]);
+ 		if (empty($cart[md5($id)])) {
+	 		$data = array(
+	               'id'      => $id,
+	               'qty'     => 1,
+	               'price'   => floatval($_POST["price"]),
+	               'name'    => $_POST['name'],
+	               'options' => array()
+	            );
+			$this->cart->insert($data);
+			echo $this->cart->total();
+ 		}else{//update cart
+ 			$qty = $cart[md5($id)]['qty'];
+ 			$qty++;
+ 			$data = array(
+               'rowid' => md5($id),
+               'qty'   => $qty
             );
-
-		echo $this->cart->insert($data);
+			$this->cart->update($data); 
+			echo $this->cart->total();
+ 		}
+		return TRUE; 		
  	}
 
  }

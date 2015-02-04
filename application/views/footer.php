@@ -78,7 +78,12 @@
                     function onAjaxSuccess(data)
                     {
                       // Здесь мы получаем данные, отправленные сервером и выводим их на экран.
-                      alert(data);
+                        $('.cart_amount').addClass("text-success");
+                        $('#cart_amount').text(data);
+                        setTimeout(function(){
+                            $('.cart_amount').toggleClass('text-success text-muted');
+                        }, 2000);
+                      //#9d9d9d
                     }
              })
          });

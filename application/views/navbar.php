@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?=base_url();?>">Rynok</a>
+                <a class="navbar-brand" href="<?=site_url();?>">Rynok</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -27,7 +27,7 @@
                 </form>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-info-sign"></span> Информ бюро</a>
+                    <li><a href="<?=site_url();?>"><span class="glyphicon glyphicon-info-sign"></span> Оплата и доставка</a>
                     </li>
                     <li>
                         <a href="<?=site_url()?>/login"><span class="glyphicon glyphicon-user"></span> 
@@ -40,7 +40,11 @@
                             } ?>
                         </a>
                     </li>
-                    <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> 108.5 грн</a>
+                    <li>
+                    <a href="<?=site_url();?>/cart">
+                    <!-- <span class="badge"><?=$this->cart->total_items()?></span> -->
+                    <span class="glyphicon glyphicon-shopping-cart cart_amount a"></span> 
+                        <span id="cart_amount" class="cart_amount text-muted"><?=$this->cart->total()?></span> <span class="text-muted">грн</span></a>
                     </li>
 
 
