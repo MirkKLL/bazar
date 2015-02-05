@@ -18,11 +18,15 @@
 			  </div>
 			  <div class="form-group">
 			    <label for="exampleInputPassword1">Фамилия:</label>
-			    <input type="text" class="form-control" name="second_name" placeholder="Сидоров">
+			    <input type="text" class="form-control" name="last_name" placeholder="Сидоров">
 			  </div>
 			  <div class="form-group">
-				<label for="phone">Адрес доставки:</label>
+				<label for="address">Адрес доставки:</label>
 			  	<textarea class="form-control" rows="3" name="address" placeholder="пр.Ленина 10 кв. 20, 1 подъезд, код: 321"></textarea>
+			  </div>
+			  <div class="form-group">
+				<label for="comments">Адрес доставки:</label>
+			  	<textarea class="form-control" rows="3" name="comments" placeholder="примечания по заказу"></textarea>
 			  </div>
 			  
 			  <button type="submit" class="btn btn-default">Отправить</button>
