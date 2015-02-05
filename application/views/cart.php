@@ -1,59 +1,33 @@
-<div class="container">
-	<div class="row">
-		<?php echo form_open('cart/update'); ?>
+<div class="container cart">
+	<form action="<?=site_url();?>/cart/update" method="POST">
+		<h1>Корзина</h1>
+		<?php $i = 1; ?>
+		<?php foreach ($this->cart->contents() as $items): ?>
+			<div class="row">
+				<div class="col-sm-2 hidden-xs hidden-sm "><?php echo form_hidden($i.'[rowid]', $items['rowid']); ?></div>
+				<div class="col-md-2 hidden-xs hidden-sm "><img  src="http://placehold.it/120x80" alt="prevew"></div>
+				<div class="col-sm-4 col-xs-4"><h3><?=$items['name']?></h3></div>
+				<div class="col-sm-2">
+					<input type="text" name="<?php echo $i.'[qty]';?>" value = "<?=$items['qty']?>" maxlength = "3" size = "5">
+				</div>
+				<div class="col-sm-2"><?php echo $this->cart->format_number($items['price']); ?> грн.</div>
+				<div class="col-sm-2"><?php echo $this->cart->format_number($items['subtotal']); ?> грн.</div>
+			</div>
+		<?php $i++; ?>
+		<?php endforeach; ?>
+		<div class="row">
+			<div class="col-md-3 col-md-offset-9">
+				<strong>Всего: <?php echo $this->cart->format_number($this->cart->total()); ?> грн. </strong>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-md-offset-8">
+				<button type="button" class="btn btn-warning" onClick='submit()'> <span class="glyphicon glyphicon-refresh"></span> Пересчитать</button>
+  				<button type="button" class="btn btn-success">Оформить заказ</button>
+			</div>
+		</div>
 
-<table cellpadding="6" cellspacing="1" style="width:100%" border="0">
+	</form>
 
-<tr>
-  <th>photo</th>
-  <th>QTY</th>
-  <th>Item Description</th>
-  <th style="text-align:right">Item Price</th>
-  <th style="text-align:right">Sub-Total</th>
-</tr>
 
-<?php $i = 1; ?>
-
-<?php foreach ($this->cart->contents() as $items): ?>
-
-	<?php echo form_hidden($i.'[rowid]', $items['rowid']); ?>
-
-	<tr>
-		<td><img  src="http://placehold.it/320x22" alt="prevew"></td>
-	  <td><?php echo form_input(array('name' => $i.'[qty]', 'value' => $items['qty'], 'maxlength' => '3', 'size' => '5')); ?></td>
-	  <td>
-		<?php echo $items['name']; ?>
-
-			<?php if ($this->cart->has_options($items['rowid']) == TRUE): ?>
-
-				<p>
-					<?php foreach ($this->cart->product_options($items['rowid']) as $option_name => $option_value): ?>
-
-						<strong><?php echo $option_name; ?>:</strong> <?php echo $option_value; ?><br />
-
-					<?php endforeach; ?>
-				</p>
-
-			<?php endif; ?>
-
-	  </td>
-	  <td style="text-align:right"><?php echo $this->cart->format_number($items['price']); ?></td>
-	  <td style="text-align:right"><?php echo $this->cart->format_number($items['subtotal']); ?>грн</td>
-	</tr>
-
-<?php $i++; ?>
-
-<?php endforeach; ?>
-
-<tr>
-  <td colspan="2"> </td>
-  <td class="right"><strong>Total</strong></td>
-  <td class="right"><?php echo $this->cart->format_number($this->cart->total()); ?> грн.</td>
-</tr>
-
-</table>
-
-<p><?php echo form_submit('', 'Update your Cart'); ?></p>
-
-	</div>
-</div>
+	

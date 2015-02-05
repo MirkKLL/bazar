@@ -1,6 +1,12 @@
          body {
          padding-top: 70px;
          }
+         .cart table {
+            border: 1px solid #E6E4DF;
+         }
+         .cart .row{
+            padding-top: 10px;
+         }
          .product_caption {
          	height: 150px;
          	overflow: hidden;
