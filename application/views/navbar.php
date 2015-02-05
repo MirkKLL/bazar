@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?=site_url();?>">Rynok</a>
+                <a class="navbar-brand" href="<?=site_url();?>">Rynok<small> beta</small></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->

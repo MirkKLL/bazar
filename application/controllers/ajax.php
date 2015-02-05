@@ -12,13 +12,13 @@ class Ajax extends CI_Controller {
  	public function add_item()
  	{
  		$cart = $this->cart->contents();
- 		$id = intval($_POST["id"]);
+ 		$id = intval($this->input->post("id"));
  		if (empty($cart[md5($id)])) {
 	 		$data = array(
 	               'id'      => $id,
 	               'qty'     => 1,
-	               'price'   => floatval($_POST["price"]),
-	               'name'    => $_POST['name'],
+	               'price'   => floatval($this->input->post("price")),
+	               'name'    => $this->input->post("name"),
 	               'options' => array()
 	            );
 			$this->cart->insert($data);

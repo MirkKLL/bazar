@@ -32,8 +32,23 @@ class Cart extends CI_Controller {
 	public function update()
 	{
 		//print_r($_POST);
-		$this->cart->update($_POST);
+		$this->cart->update($this->input->post());
 		$this->index("ok");
+	}
+
+	public function confirm()
+	{
+		
+		$this->load->view('header');
+		$this->load->view('navbar');
+		$this->load->view('order_confirm');
+		$this->load->view('footer');
+	}
+
+	public function order_finis()
+	{
+		print_r($this->input->post());
+		//$this->input->ip_address()
 	}
 
 }
