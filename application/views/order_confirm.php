@@ -25,11 +25,11 @@
 			  	<textarea class="form-control" rows="3" name="address" placeholder="пр.Ленина 10 кв. 20, 1 подъезд, код: 321"></textarea>
 			  </div>
 			  <div class="form-group">
-				<label for="comments">Адрес доставки:</label>
+				<label for="comments">Коментарии:</label>
 			  	<textarea class="form-control" rows="3" name="comments" placeholder="примечания по заказу"></textarea>
 			  </div>
 			  
-			  <button type="submit" class="btn btn-default">Отправить</button>
+			  <button type="submit" class="btn btn-default btn-success btn-lg pull-right">Отправить</button>
 			</form>
 		</div>
 		<div class="col-md-3"></div>

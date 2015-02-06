@@ -65,7 +65,7 @@
             }); 
              $('.add_to_cart').click(function(){
                 $.post(
-                      "http://localhost/index.php/ajax/add_item",
+                      "<?=base_url();?>index.php/ajax/add_item",
                       {
                         id: this.getAttribute('data-id'),
                         name: this.getAttribute('data-name'),
