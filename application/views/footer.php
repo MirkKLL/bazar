@@ -70,7 +70,8 @@
                         id: this.getAttribute('data-id'),
                         name: this.getAttribute('data-name'),
                         qty: this.getAttribute('data-qty'),
-                        price: this.getAttribute('data-price')
+                        price: this.getAttribute('data-price'),
+                        measure: this.getAttribute('data-measure'),
                       },
                       onAjaxSuccess
                     );

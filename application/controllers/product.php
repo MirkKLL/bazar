@@ -20,11 +20,11 @@ class Product extends CI_Controller {
 
 	public function category($group_id)
 	{
-		$data['products'] = $this->get_products($group_id);
 		$this->load->view('header');
 		$this->load->view('navbar');
 		$bred['bred'] = $this->group_model->get_name_by_id($group_id);
 		$this->load->view('breadcrumb', $bred);
+		$data['products'] = $this->get_products($group_id);
 		$this->load->view('product', $data);
 		$this->load->view('footer');
 	}
@@ -39,13 +39,16 @@ class Product extends CI_Controller {
 			$desc = $key->description;
 			$price = $key->last_price;
 			$desc = $key->description;
+			$date_from = $key->prod_date;
+			$date_to = $key->expire_date;
+			$measure = $key->measure;
+			$amount = $key->amount;
 			$aResult .= '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 	                  <div class="thumbnail">
 	                     <img src="http://placehold.it/320x220" alt="">
 	                     <div class="caption product_caption">
 	                        <h4 class="pull-right">'.$price.' грн.</h4>
-	                        <h4><a href="#">'.$name.'</a>
-	                        </h4>
+	                        <h4>'.$name.'</h4>
 	                        <p>'.$desc.'</p>
 	                     </div>
 
@@ -54,26 +57,28 @@ class Product extends CI_Controller {
 	                           <button type="button" class="btn btn-info btn-sm pull-left" 
 	                           data-container="body" 
 	                           data-toggle="popover" data-placement="bottom" 
-	                           data-content="<b>Изготовлено:</b> сегодня<br> 
-	                                 <b>Годен до:</b> 10,05,2016
+	                           data-content="
+	                           <b>Изготовлено:</b>'.$date_from.'<br> 
+	                                 <b>Годен до:</b> '.$date_to.'
 	                                 "> 
 	                              <span class="glyphicon glyphicon-info-sign"></span>
 	                           </button>
 	                        </div>
 	                        <div class="col-xs-5 col-sm-5 col-md-6">
-	                           <div class="input-group input-group-sm">
+
+	                           <!-- <div class="input-group input-group-sm">
 	                              <span class="input-group-btn">
 	                              <button class="btn btn-default btn-danger" type="button"><span class="glyphicon glyphicon-minus-sign"></span></button>
 	                              </span>
-	                              <input type="text" class="form-control" value="1.5">
+	                              <input type="text" class="form-control" value="'.$amount.'">
 	                              <span class="input-group-btn">
 	                              <button class="btn btn-default btn-primary" type="button"><span class="glyphicon glyphicon-plus-sign"></span></button>
 	                              </span>
-	                           </div>
+	                           </div> -->
 	                           <!-- /input-group -->
 	                        </div>
 	                        <div class="col-xs-2 col-sm-2 col-md-2"  style="padding:5px;">
-	                           <span><b> кг.</b></span>
+	                           <span><b>'.$amount." ".$measure.'</b></span>
 	                        </div>
 	                        <div class="col-xs-2 col-sm-2 col-md-2">
 	                           <button type="button" class="btn btn-success btn-sm pull-right add_to_cart" 
@@ -81,7 +86,7 @@ class Product extends CI_Controller {
 	                           data-name = "'.$name.'""
 	                           data-qty = "1"
 	                           data-price = "'.$price.'"
-
+	                           data-measure = "'.$measure.'"
 
 	                           > <span class="glyphicon glyphicon-shopping-cart"></span></button>
 	                        </div>
