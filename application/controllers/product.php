@@ -3,11 +3,11 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Product extends CI_Controller {
 
 	function __construct()
- 	{
-   		parent::__construct();
-   		$this->load->model('product_model','',TRUE);
-   		$this->load->model('group_model','',TRUE);
- 	}
+	{
+		parent::__construct();
+		$this->load->model('product_model','',TRUE);
+		$this->load->model('group_model','',TRUE);
+	}
 
 	public function index()
 	{
@@ -54,58 +54,58 @@ class Product extends CI_Controller {
 			$measure = $key->measure;
 			$amount = $key->amount;
 			$aResult .= '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-	                  <div class="thumbnail">
-	                     <img src="http://placehold.it/320x220" alt="">
-	                     <div class="caption product_caption">
-	                        <h4 class="pull-right">'.$price.' грн.</h4>
-	                        <h4>'.$name.'</h4>
-	                        <p>'.$desc.'</p>
-	                     </div>
+			<div class="thumbnail">
+				<img src="http://placehold.it/320x220" alt="">
+				<div class="caption product_caption">
+					<h4 class="pull-right">'.$price.' грн.</h4>
+					<h4>'.$name.'</h4>
+					<p>'.$desc.'</p>
+				</div>
 
-	                     <div class="row">
-	                        <div class="col-xs-2 col-sm-3 col-md-2">
-	                           <button type="button" class="btn btn-info btn-sm pull-left" 
-	                           data-container="body" 
-	                           data-toggle="popover" data-placement="bottom" 
-	                           data-content="
-	                           <b>Изготовлено:</b>'.$date_from.'<br> 
-	                                 <b>Годен до:</b> '.$date_to.'
-	                                 "> 
-	                              <span class="glyphicon glyphicon-info-sign"></span>
-	                           </button>
-	                        </div>
-	                        <div class="col-xs-5 col-sm-5 col-md-6">
+				<div class="row">
+					<div class="col-xs-2 col-sm-3 col-md-2">
+						<button type="button" class="btn btn-info btn-sm pull-left" 
+						data-container="body" 
+						data-toggle="popover" data-placement="bottom" 
+						data-content="
+						<b>Изготовлено:</b>'.$date_from.'<br> 
+						<b>Годен до:</b> '.$date_to.'
+						"> 
+						<span class="glyphicon glyphicon-info-sign"></span>
+					</button>
+				</div>
+				<div class="col-xs-5 col-sm-5 col-md-6">
 
-	                           <!-- <div class="input-group input-group-sm">
-	                              <span class="input-group-btn">
-	                              <button class="btn btn-default btn-danger" type="button"><span class="glyphicon glyphicon-minus-sign"></span></button>
-	                              </span>
-	                              <input type="text" class="form-control" value="'.$amount.'">
-	                              <span class="input-group-btn">
-	                              <button class="btn btn-default btn-primary" type="button"><span class="glyphicon glyphicon-plus-sign"></span></button>
-	                              </span>
-	                           </div> -->
-	                           <!-- /input-group -->
-	                        </div>
-	                        <div class="col-xs-2 col-sm-2 col-md-2"  style="padding:5px;">
-	                           <span><b>'.$amount." ".$measure.'</b></span>
-	                        </div>
-	                        <div class="col-xs-2 col-sm-2 col-md-2">
-	                           <button type="button" class="btn btn-success btn-sm pull-right add_to_cart" 
-	                           data-id = '.$id.'
-	                           data-name = "'.$name.'""
-	                           data-qty = "1"
-	                           data-price = "'.$price.'"
-	                           data-measure = "'.$measure.'"
+					<!-- <div class="input-group input-group-sm">
+					<span class="input-group-btn">
+						<button class="btn btn-default btn-danger" type="button"><span class="glyphicon glyphicon-minus-sign"></span></button>
+					</span>
+					<input type="text" class="form-control" value="'.$amount.'">
+					<span class="input-group-btn">
+						<button class="btn btn-default btn-primary" type="button"><span class="glyphicon glyphicon-plus-sign"></span></button>
+					</span>
+				</div> -->
+				<!-- /input-group -->
+			</div>
+			<div class="col-xs-2 col-sm-2 col-md-2"  style="padding:5px;">
+				<span><b>'.$amount." ".$measure.'</b></span>
+			</div>
+			<div class="col-xs-2 col-sm-2 col-md-2">
+				<button type="button" class="btn btn-success btn-sm pull-right add_to_cart" 
+				data-id = '.$id.'
+				data-name = "'.$name.'""
+				data-qty = "1"
+				data-price = "'.$price.'"
+				data-measure = "'.$measure.'"
 
-	                           > <span class="glyphicon glyphicon-shopping-cart"></span></button>
-	                        </div>
-	                     </div>
+				> <span class="glyphicon glyphicon-shopping-cart"></span></button>
+			</div>
+		</div>
 
-	                  </div>
-	               </div>';
+	</div>
+</div>';
 
-		}
-		return $aResult;
-	}
+}
+return $aResult;
+}
 }

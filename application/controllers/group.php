@@ -3,10 +3,10 @@
 class Group extends CI_Controller {
 
 	function __construct()
- 	{
-   		parent::__construct();
-   		$this->load->model('group_model','',TRUE);
- 	}
+	{
+		parent::__construct();
+		$this->load->model('group_model','',TRUE);
+	}
 
 	public function index()
 	{
@@ -44,17 +44,17 @@ class Group extends CI_Controller {
 			$name = $key->name;
 			$description = $key->description;
 			$aResult .= '
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                  <div class="thumbnail">
-                     <img src="http://placehold.it/320x220" 
-                     alt="..." 
-                     style="height: 180px; width: 100%; display: block;" 
-                     >
-                     <div class="caption text-center">
-                        <h3><a href="'.site_url().'/product/category/'.$id.'">'.$name.'</a></h3>
-                     </div>
-                  </div>
-               </div>
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+				<div class="thumbnail">
+					<img src="http://placehold.it/320x220" 
+					alt="..." 
+					style="height: 180px; width: 100%; display: block;" 
+					>
+					<div class="caption text-center">
+						<h3><a href="'.site_url().'/product/category/'.$id.'">'.$name.'</a></h3>
+					</div>
+				</div>
+			</div>
 			';
 		}
 		return $aResult;
