@@ -22,9 +22,19 @@ class Product extends CI_Controller {
 	{
 		$this->load->view('header');
 		$this->load->view('navbar');
+
 		$bred['bred'] = $this->group_model->get_name_by_id($group_id);
 		$this->load->view('breadcrumb', $bred);
+
 		$data['products'] = $this->get_products($group_id);
+		
+		//unset last element and left only group id
+		unset($bred['bred'][$group_id]);
+		foreach ($bred['bred'] as $key => $value) {
+			$my_group = $key;
+		}
+		$data['left_menu'] = $this->group_model->get_left_menu($my_group, $group_id);
+
 		$this->load->view('product', $data);
 		$this->load->view('footer');
 	}

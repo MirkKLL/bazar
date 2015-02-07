@@ -20,11 +20,14 @@ class Group extends CI_Controller {
 
 	public function categories($group_id = 1)
 	{
-		$data['category'] =	$this->get_categories($group_id);
 		$this->load->view('header');
 		$this->load->view('navbar');
+
 		$bred['bred'] = $this->group_model->get_name_by_id($group_id);
 		$this->load->view('breadcrumb', $bred);
+
+		$data['category'] =	$this->get_categories($group_id);
+		$data['left_menu'] = $this->group_model->get_left_menu($group_id);
 		$this->load->view('group', $data);
 		$this->load->view('footer');
 	}
@@ -56,4 +59,6 @@ class Group extends CI_Controller {
 		}
 		return $aResult;
 	}
+
+
 }
