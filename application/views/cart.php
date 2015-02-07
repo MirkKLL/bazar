@@ -19,24 +19,24 @@
 				<div class="col-sm-2 col-md-1 col-xl-1" style="margin-top: 20px;"><?php echo $this->cart->format_number($items['price']); ?> грн.</div>
 				<div class="col-sm-2 col-md-1 col-xl-1" style="margin-top: 20px;"><?php echo $this->cart->format_number($items['subtotal']); ?> грн.</div>
 			</div>
-		<?php $i++; ?>
+			<?php $i++; ?>
 		<?php endforeach; ?>
 		<?php if ($this->cart->total_items()>0) : ?>
-		<div class="row">
-			<div class="col-md-3 col-md-offset-9">
-				<h3>Всего: <?php echo $this->cart->format_number($this->cart->total()); ?> грн. </h3>
+			<div class="row">
+				<div class="col-md-3 col-md-offset-9">
+					<h3>Всего: <?php echo $this->cart->format_number($this->cart->total()); ?> грн. </h3>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4 col-md-offset-8">
-				<button type="button" class="btn btn-warning" onClick='submit()'> <span class="glyphicon glyphicon-refresh"></span> Пересчитать</button>
-  				<a type="button" class="btn btn-success btn-lg" href = "<?=site_url()?>/cart/confirm">
-  				<span class="glyphicon glyphicon-ok"></span>
-  				Оформить заказ</a>
-			</div>
-		</div>
-	<?php endif; ?>
-	</form>
+			<div class="row">
+				<div class="col-md-4 col-md-offset-8">
+					<button type="button" class="btn btn-warning" onClick='submit()'> <span class="glyphicon glyphicon-refresh"></span> Пересчитать</button>
+					<a type="button" class="btn btn-success btn-lg" href = "<?=site_url()?>/cart/confirm">
+						<span class="glyphicon glyphicon-ok"></span>
+						Оформить заказ</a>
+					</div>
+				</div>
+			<?php endif; ?>
+		</form>
 
 
-	
+		

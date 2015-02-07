@@ -3,32 +3,32 @@
 class Cart extends CI_Controller {
 
 	function __construct()
- 	{
-   		parent::__construct();
-   		$this->load->model('group_model','',TRUE);
-   		$this->load->model('cart_model','',TRUE);
-   		$this->load->model('user','',TRUE);
-   		$this->load->helper(array('form'));
- 	}
+	{
+		parent::__construct();
+		$this->load->model('group_model','',TRUE);
+		$this->load->model('cart_model','',TRUE);
+		$this->load->model('user','',TRUE);
+		$this->load->helper(array('form'));
+	}
 
- 	public function index($action = "")
+	public function index($action = "")
 	{
 		$this->load->view('header');
 		$this->load->view('navbar');
 		switch ($action) {
 			case '':
 				# nothing
-				break;
+			break;
 			case 'ok':
-				$this->load->view('alert/success', array('msg' => "Корзина успешно обновлена"));
-				break;
+			$this->load->view('alert/success', array('msg' => "Корзина успешно обновлена"));
+			break;
 			case 'order_done':
-				$this->load->view('alert/success', array('msg' => "Спасибо! Ваш заказ отправлен на обработку, в ближайшее время с Вами свяжется наш оператор."));
-				break;
+			$this->load->view('alert/success', array('msg' => "Спасибо! Ваш заказ отправлен на обработку, в ближайшее время с Вами свяжется наш оператор."));
+			break;
 			
 			default:
 				# code...
-				break;
+			break;
 		}
 		$this->load->view('cart');
 		$this->load->view('footer');
@@ -78,8 +78,8 @@ class Cart extends CI_Controller {
 			//Array ( [rowid] => c8862c [id] => 2 [qty] => 8 [price] => 4.4 [name] => РЎР [options] => Array ( ) [subtotal] => 35.2 )
 			$done = $this->cart_model->save_order_details($order_id, $value["id"], $value["qty"], $value["price"], $value["subtotal"]);
 		}
-			$this->cart->destroy();
-			$this->index("order_done");
+		$this->cart->destroy();
+		$this->index("order_done");
 	}
 
 }

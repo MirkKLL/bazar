@@ -1,8 +1,8 @@
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="container">
-                <div class="row">
+<footer class="footer">
+    <div class="footer-content">
+        <div class="container">
+            <div class="row">
                 <div class="footer-col col-md-3 col-sm-4 about">
                     <div class="footer-col-inner">
                         <h3>About</h3>
@@ -45,50 +45,50 @@
                         </div> 
                     </div><!--//footer-col-inner-->            
                 </div><!--//foooter-col-->   
-                </div>   
-            </div>        
-        </div><!--//footer-content-->        
-    </footer>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="<?=base_url();?>bootstrap/js/bootstrap.min.js"></script>
-     <script type="text/javascript">
-      $(document).ready(function(){
-             $('[data-toggle="tooltip"]').tooltip({
-                    'delay': { show: 100, hide: 300 }
-               });  
-             $('[data-toggle="popover"]').popover({
-               'trigger': 'hover',
-               'placement': 'top',
-               'html':'true'
-            }); 
-             $('.add_to_cart').click(function(){
-                $.post(
-                      "<?=base_url();?>index.php/ajax/add_item",
-                      {
-                        id: this.getAttribute('data-id'),
-                        name: this.getAttribute('data-name'),
-                        qty: this.getAttribute('data-qty'),
-                        price: this.getAttribute('data-price'),
-                        measure: this.getAttribute('data-measure'),
-                      },
-                      onAjaxSuccess
-                    );
-                     
-                    function onAjaxSuccess(data)
-                    {
+            </div>   
+        </div>        
+    </div><!--//footer-content-->        
+</footer>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="<?=base_url();?>bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+   $('[data-toggle="tooltip"]').tooltip({
+    'delay': { show: 100, hide: 300 }
+});  
+   $('[data-toggle="popover"]').popover({
+     'trigger': 'hover',
+     'placement': 'top',
+     'html':'true'
+ }); 
+   $('.add_to_cart').click(function(){
+    $.post(
+      "<?=base_url();?>index.php/ajax/add_item",
+      {
+        id: this.getAttribute('data-id'),
+        name: this.getAttribute('data-name'),
+        qty: this.getAttribute('data-qty'),
+        price: this.getAttribute('data-price'),
+        measure: this.getAttribute('data-measure'),
+    },
+    onAjaxSuccess
+    );
+    
+    function onAjaxSuccess(data)
+    {
                       // Здесь мы получаем данные, отправленные сервером и выводим их на экран.
-                        $('.cart_amount').addClass("text-success");
-                        $('#cart_amount').text(data);
-                        setTimeout(function(){
-                            $('.cart_amount').toggleClass('text-success text-muted');
-                        }, 2000);
+                      $('.cart_amount').addClass("text-success");
+                      $('#cart_amount').text(data);
+                      setTimeout(function(){
+                        $('.cart_amount').toggleClass('text-success text-muted');
+                    }, 2000);
                       //#9d9d9d
-                    }
-             })
-         });
-    </script>
+                  }
+              })
+});
+</script>
 </body>
 
 </html>
