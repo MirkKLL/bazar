@@ -6,15 +6,16 @@
 			<h1>Корзина пуста</h1> 
 			<br /><br /><br /><br /><br /><br />
 		<?php endif; ?>
-
+			
 		<?php $i = 1; ?>
 		<?php foreach ($this->cart->contents() as $items): ?>
 			<div class="row">
 				<div class="col-sm-2 hidden-xs hidden-sm "><?php echo form_hidden($i.'[rowid]', $items['rowid']); ?></div>
 				<div class="col-md-2 hidden-xs hidden-sm "><img  src="http://placehold.it/120x80" alt="prevew"></div>
-				<div class="col-sm-4 col-xs-4 col-md-5 col-xl-5"><h3><?=$items['name']?></h3></div>
-				<div class="col-sm-2 col-md-1 col-xl-1">
+				<div class="col-sm-4 col-xs-4 col-md-4 col-xl-4"><h3><?=$items['name']?></h3></div>
+				<div class="col-sm-2 col-md-2 col-xl-2">
 					<input  type = "number" min = "0" max = "500" name="<?php echo $i.'[qty]';?>" value = "<?=$items['qty']?>" maxlength = "3" size = "5" style="margin-top: 20px;">
+					<?=$items['options']['measure']?>
 				</div>
 				<div class="col-sm-2 col-md-1 col-xl-1" style="margin-top: 20px;"><?php echo $this->cart->format_number($items['price']); ?> грн.</div>
 				<div class="col-sm-2 col-md-1 col-xl-1" style="margin-top: 20px;"><?php echo $this->cart->format_number($items['subtotal']); ?> грн.</div>
