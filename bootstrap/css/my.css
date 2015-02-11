@@ -20,11 +20,11 @@
          }
          @media (min-width: 1170px) {
          .navbar-search {
-         width: 55%!important;
+         width: 300px;
          }
          }
          @media (min-width: 970px) and (max-width: 1170px;){
          .navbar-search {
-         width: 56%!important;
+         width: 300px;
          }
 }

@@ -11,6 +11,9 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
+		//$meta['keywords'] = "";
+		//$meta['description'] = "";
+		//$this->load->view('header', $meta);
 		$this->load->view('header');
 		$this->load->view('navbar');
 		$data['debug'] = $this->get_groups();
