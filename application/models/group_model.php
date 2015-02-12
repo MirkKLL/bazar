@@ -105,4 +105,25 @@ Class Group_model extends CI_Model{
 			$sResult .= "</div></div><!-- End of left menu -->";
 			return $sResult;
 		}
+
+		public function get_all_categories()
+		{
+			$this -> db -> select('*');
+			$this -> db -> from('food__category');
+			$this -> db -> where('parent_id >', 0);
+
+			$query = $this -> db -> get();
+			$aResult = array();
+			if($query -> num_rows() > 0)
+			{
+				foreach ($query->result() as $key) {
+					$aResult[$key->id] = $key->name;
+				}
+				return $aResult;
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}

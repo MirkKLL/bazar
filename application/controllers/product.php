@@ -43,6 +43,10 @@ class Product extends CI_Controller {
 	{
 		$aData = $this->product_model->get_products($group_id);
 		$aResult = "";
+		if (empty($aData)) {
+			$aResult .= "Продукты в данной категории временно отсутствуют";
+			return $aResult;
+		}
 		foreach ($aData as $key) {
 			$id = $key->id;
 			$name = $key->name;

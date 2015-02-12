@@ -21,4 +21,11 @@ Class Product_model extends CI_Model
 			return false;
 		}
 	}
+
+	public function update_product($aData)
+	{
+		if(empty($aData['id'])) {
+			$this->db->insert('food', $aData);
+		}
+	}
 }
