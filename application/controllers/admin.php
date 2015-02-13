@@ -11,6 +11,7 @@ class Admin extends CI_Controller {
 		  }
 		  $this->load->model('group_model','',TRUE);
 		  $this->load->model('product_model','',TRUE);
+		  $this->load->model('cart_model','',TRUE);
 		}
 
 		public function index($page = "", $message = "")
@@ -33,10 +34,11 @@ class Admin extends CI_Controller {
 			$url = site_url();
 			return "
 			<ul>
+				<li><a href='$url/admin/'>Главная</a></li>
 				<li><a href='$url/admin/add_product'>Добавить продукт</a></li>
-				<li></li>
-				<li></li>
-				<li></li>
+				<li><a href='$url/admin/orders'>Список закоазов</a></li>
+				<li><a href='$url/admin'></a></li>
+				<li><a href='$url/admin'></a></li>
 			</ul>
 
 			";
@@ -56,7 +58,22 @@ class Admin extends CI_Controller {
 			}
 
 
-			$this->load->view('admin/main', $data);
+			$this->load->view('admin/add_product', $data);
+
+			$this->load->view('footer');
+		}
+
+		public function orders($status='new')
+		{
+			$session_data = $this->session->userdata('logged_in');
+			$data['phone'] = $session_data['phone'];
+			$data['links'] = $this->show_links();
+			$data['categories'] = $this->group_model->get_all_categories();
+			$this->load->view('header');
+			$this->load->view('navbar');
+
+			$data['orders'] = $this->cart_model->get_orders('new');
+			$this->load->view('admin/orders', $data);
 
 			$this->load->view('footer');
 		}
