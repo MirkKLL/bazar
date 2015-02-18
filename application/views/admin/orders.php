@@ -16,7 +16,7 @@
 				<tbody>
 					<?php foreach ($orders as $order): ?>
 						<tr>
-							<td><?=$order->id?></td>
+							<td><a href="<?=site_url()?>/admin/order_edit/<?=$order->id?>"><?=$order->id?></a></td>
 							<td><?=$order->phone?> | <?=$order->first_name?></td>
 							<td><?=$order->name?></td>
 							<td><?=$order->created_at?></td>
@@ -26,7 +26,7 @@
 					<?php endforeach; ?>
 				</tbody>
 			</table>
-			<?php print_r($orders[0]); ?>
+			<?php //print_r($orders[0]); ?>
 		</div>
 	</div>
 </div>

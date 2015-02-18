@@ -71,8 +71,8 @@ Class Cart_model extends CI_Model
             break;
 
             case 'new':
-                $this -> db -> where('status', '1');
-                break;
+            $this -> db -> where('status', '1');
+            break;
 
             default:
             # code...
@@ -87,6 +87,26 @@ Class Cart_model extends CI_Model
         }
         else
         {
+            return false;
+        }
+    }
+
+    public function get_order($id)
+    {
+        $id = intval($id);
+            $sSql = "SELECT o.*, os.name, u.phone, u.first_name, u.last_name, u.email, u.notes
+                        FROM `order` AS o
+                        INNER JOIN `order__status` AS os
+                        ON o.status = os.id
+                        INNER JOIN `users` AS u
+                        ON o.user = u.id
+                        WHERE o.id = ?
+                    ";
+        $aData = $this->db->query($sSql, array($id));
+        $aResult = $aData->result_array();
+        if (!empty($aResult)) {
+            return $aResult[0];
+        }else{
             return false;
         }
     }

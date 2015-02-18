@@ -68,7 +68,7 @@ class Admin extends CI_Controller {
 			$session_data = $this->session->userdata('logged_in');
 			$data['phone'] = $session_data['phone'];
 			$data['links'] = $this->show_links();
-			$data['categories'] = $this->group_model->get_all_categories();
+			//$data['categories'] = $this->group_model->get_all_categories();
 			$this->load->view('header');
 			$this->load->view('navbar');
 
@@ -76,5 +76,23 @@ class Admin extends CI_Controller {
 			$this->load->view('admin/orders', $data);
 
 			$this->load->view('footer');
+		}
+
+		public function order_edit($id)
+		{
+			$id = intval($id);
+			
+
+			$session_data = $this->session->userdata('logged_in');
+			$data['phone'] = $session_data['phone'];
+			$data['links'] = $this->show_links();
+			$this->load->view('header');
+			$this->load->view('navbar');
+
+			$data['order'] = $this->cart_model->get_order($id);
+			$this->load->view('admin/order_edit', $data);
+
+			$this->load->view('footer');
+
 		}
 	}
