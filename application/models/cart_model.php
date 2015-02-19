@@ -2,6 +2,13 @@
 
 Class Cart_model extends CI_Model
 {
+  
+
+  function __construct()
+  {
+    parent::__construct();
+    $this->load->helper('date');
+  }
 
    function get_products($group_id)
    {
@@ -21,7 +28,6 @@ Class Cart_model extends CI_Model
 
     public function add_order($user_id, $location, $comments, $price, $ip)
     {
-      $this->load->helper('date');
       $now = time();
 
       $now = unix_to_human($now, TRUE, 'eu');
@@ -116,7 +122,7 @@ Class Cart_model extends CI_Model
         $sSql = "SELECT * FROM order__status WHERE 1";
         $aData = $this->db->query($sSql);
         $aResult = $aData->result_array();
-        $sResult = "<select class='form-control' name = 'order_status'>";
+        $sResult = "<select class='form-control' name = 'status'>";
         foreach ($aResult as $key => $value) {
             $name = $value['name'];
             $id = $value['id'];
@@ -128,6 +134,37 @@ Class Cart_model extends CI_Model
         }
         $sResult .= "</select>";
         return $sResult;
+    }
+
+    public function order_update($aData)
+    {
+      $id = $aData['order_id'];
+      $status = $aData['status'];
+      $coments = !empty($aData['coments']) ? $aData['coments'] : '';
+
+     $sSql = "UPDATE `order` 
+      SET status = $status,
+      coments = '$coments'
+      WHERE id = $id
+      "; 
+       $res = $this->db->query($sSql);
+    }
+
+    public function get_order_detail($order_id)
+    {
+      $sSql = "SELECT od.*, f.*, fc.name as cat_name, p.path, p.alt FROM `order__detail` od
+              INNER JOIN food f
+              ON od.food_id = f.id
+              INNER JOIN food__category fc
+              ON f.category = fc.id
+              LEFT JOIN photo p
+              ON f.photo_id = p.id
+              WHERE od.order_id = $order_id";
+
+      $aData = $this->db->query($sSql);
+      $aResult = $aData->result_array();
+      return $aResult;
+
     }
 
 }
