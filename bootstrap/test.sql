@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Фев 06 2015 г., 00:04
+-- Время создания: Фев 19 2015 г., 14:13
 -- Версия сервера: 5.5.41-0ubuntu0.14.04.1
--- Версия PHP: 5.5.9-1ubuntu4.5
+-- Версия PHP: 5.5.9-1ubuntu4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -32,20 +32,19 @@ CREATE TABLE IF NOT EXISTS `food` (
   `last_price` float NOT NULL,
   `prod_date` date NOT NULL,
   `expire_date` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
---
--- Очистить таблицу перед добавлением данных `food`
---
-
-TRUNCATE TABLE `food`;
 --
 -- Дамп данных таблицы `food`
 --
 
 INSERT INTO `food` (`id`, `name`, `description`, `photo_id`, `amount`, `measure`, `category`, `last_price`, `prod_date`, `expire_date`) VALUES
 (1, 'Молоко домашнее', 'С села', 1, 1, 'л.', 15, 9.53, '2015-01-26', '2015-01-31'),
-(2, 'Синеглазка', 'Картошка синяя', 2, 1, 'кг.', 15, 4.4, '2015-01-01', '2015-03-31');
+(2, 'Синеглазка', 'Картошка синяя', 2, 1, 'кг.', 15, 4.4, '2015-01-01', '2015-03-31'),
+(3, 'mirkill', 'ываыва', 0, 1, 'шт.', 16, 3, '2015-02-12', '2015-02-26'),
+(4, 'mirkill', 'ываыва', 0, 1, 'шт.', 16, 3, '2015-02-12', '2015-02-26'),
+(5, 'mirkill', 'ываыва', 0, 1, 'шт.', 16, 3, '2015-02-12', '2015-02-26'),
+(6, 'Классный рис', 'Ну обалденный просто', 0, 1, 'кг.', 18, 77.8, '2015-02-01', '2018-02-01');
 
 -- --------------------------------------------------------
 
@@ -61,11 +60,6 @@ CREATE TABLE IF NOT EXISTS `food__category` (
   `description` text NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
---
--- Очистить таблицу перед добавлением данных `food__category`
---
-
-TRUNCATE TABLE `food__category`;
 --
 -- Дамп данных таблицы `food__category`
 --
@@ -105,13 +99,8 @@ CREATE TABLE IF NOT EXISTS `locations` (
   `apt` int(11) NOT NULL,
   `lat` int(11) NOT NULL,
   `photo` int(5) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
---
--- Очистить таблицу перед добавлением данных `locations`
---
-
-TRUNCATE TABLE `locations`;
 --
 -- Дамп данных таблицы `locations`
 --
@@ -145,7 +134,9 @@ INSERT INTO `locations` (`id`, `address`, `user_id`, `apt`, `lat`, `photo`) VALU
 (26, 'fffff', 1, 0, 0, 0),
 (27, 'fffff', 1, 0, 0, 0),
 (28, 'fffff', 1, 0, 0, 0),
-(29, 'fffff', 1, 0, 0, 0);
+(29, 'fffff', 1, 0, 0, 0),
+(30, 'Kotikova str.', 4, 0, 0, 0),
+(31, '', 5, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -164,13 +155,8 @@ CREATE TABLE IF NOT EXISTS `order` (
   `coments` varchar(254) NOT NULL,
   `price` float NOT NULL,
   `ip` varchar(15) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
---
--- Очистить таблицу перед добавлением данных `order`
---
-
-TRUNCATE TABLE `order`;
 --
 -- Дамп данных таблицы `order`
 --
@@ -188,14 +174,16 @@ INSERT INTO `order` (`id`, `user`, `status`, `location`, `created_at`, `updated_
 (10, 3, 1, 19, '2015-02-05 23:49:17', '2015-02-05 21:49:17', 'coment', 35.2, '127.0.0.1'),
 (11, 1, 1, 20, '2015-02-05 23:50:22', '2015-02-05 21:50:22', 'test', 63.79, '127.0.0.1'),
 (12, 1, 1, 21, '2015-02-05 23:54:07', '2015-02-05 21:54:07', 'test', 63.79, '127.0.0.1'),
-(13, 1, 1, 22, '2015-02-05 23:54:11', '2015-02-05 21:54:11', 'test', 63.79, '127.0.0.1'),
+(13, 1, 3, 22, '2015-02-05 23:54:11', '2015-02-05 21:54:11', 'test', 63.79, '127.0.0.1'),
 (14, 1, 1, 23, '2015-02-05 23:55:17', '2015-02-05 21:55:17', 'test', 63.79, '127.0.0.1'),
 (15, 1, 1, 24, '2015-02-05 23:55:56', '2015-02-05 21:55:56', 'no', 63.79, '127.0.0.1'),
 (16, 1, 1, 25, '2015-02-05 23:56:54', '2015-02-05 21:56:54', 'no', 63.79, '127.0.0.1'),
 (17, 1, 1, 26, '2015-02-05 23:56:57', '2015-02-05 21:56:57', 'no', 63.79, '127.0.0.1'),
 (18, 1, 1, 27, '2015-02-05 23:57:10', '2015-02-05 21:57:10', 'no', 63.79, '127.0.0.1'),
 (19, 1, 1, 28, '2015-02-05 23:57:31', '2015-02-05 21:57:31', 'no', 63.79, '127.0.0.1'),
-(20, 1, 1, 29, '2015-02-05 23:57:52', '2015-02-05 21:57:52', 'no', 63.79, '127.0.0.1');
+(20, 1, 1, 29, '2015-02-05 23:57:52', '2015-02-05 21:57:52', 'no', 63.79, '127.0.0.1'),
+(21, 4, 1, 30, '2015-02-06 16:38:06', '2015-02-06 14:38:06', 'все пучком', 108.5, '127.0.0.1'),
+(22, 5, 1, 31, '2015-02-07 00:08:48', '2015-02-06 22:08:48', '', 60.12, '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -212,11 +200,6 @@ CREATE TABLE IF NOT EXISTS `order__detail` (
   `subtotal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Очистить таблицу перед добавлением данных `order__detail`
---
-
-TRUNCATE TABLE `order__detail`;
 --
 -- Дамп данных таблицы `order__detail`
 --
@@ -243,7 +226,11 @@ INSERT INTO `order__detail` (`order_id`, `food_id`, `qty`, `price`, `subtotal`) 
 (19, 2, 8, 4, 35),
 (19, 1, 3, 10, 29),
 (20, 2, 8, 4, 35),
-(20, 1, 3, 10, 29);
+(20, 1, 3, 10, 29),
+(21, 1, 10, 10, 95),
+(21, 2, 3, 4, 13),
+(22, 1, 4, 10, 38),
+(22, 2, 5, 4, 22);
 
 -- --------------------------------------------------------
 
@@ -258,11 +245,6 @@ CREATE TABLE IF NOT EXISTS `order__status` (
   `short` varchar(54) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
---
--- Очистить таблицу перед добавлением данных `order__status`
---
-
-TRUNCATE TABLE `order__status`;
 --
 -- Дамп данных таблицы `order__status`
 --
@@ -289,11 +271,6 @@ CREATE TABLE IF NOT EXISTS `photo` (
   `alt` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Очистить таблицу перед добавлением данных `photo`
---
-
-TRUNCATE TABLE `photo`;
 -- --------------------------------------------------------
 
 --
@@ -307,11 +284,6 @@ CREATE TABLE IF NOT EXISTS `price` (
   `price` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Очистить таблицу перед добавлением данных `price`
---
-
-TRUNCATE TABLE `price`;
 -- --------------------------------------------------------
 
 --
@@ -325,11 +297,6 @@ CREATE TABLE IF NOT EXISTS `price_history` (
   `price` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Очистить таблицу перед добавлением данных `price_history`
---
-
-TRUNCATE TABLE `price_history`;
 -- --------------------------------------------------------
 
 --
@@ -349,13 +316,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `bonus` decimal(2,2) NOT NULL DEFAULT '0.00',
   `notes` char(255) DEFAULT NULL,
   `password` varchar(256) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
---
--- Очистить таблицу перед добавлением данных `users`
---
-
-TRUNCATE TABLE `users`;
 --
 -- Дамп данных таблицы `users`
 --
@@ -363,7 +325,9 @@ TRUNCATE TABLE `users`;
 INSERT INTO `users` (`id`, `phone`, `first_name`, `last_name`, `email`, `photo`, `role_id`, `blocked`, `bonus`, `notes`, `password`) VALUES
 (1, '0938787172', 'Yevgeniy', 'Sidelnikov', 'to.MegBeg@gmail.com', NULL, 3, 0, 0.00, NULL, '202cb962ac59075b964b07152d234b70'),
 (2, '7777777776', 'ivan', 'testov', '', NULL, 0, 0, 0.00, NULL, ''),
-(3, '7777777777', 'ivan', 'testov', '', NULL, 0, 0, 0.00, NULL, '');
+(3, '7777777777', 'ivan', 'testov', '', NULL, 0, 0, 0.00, NULL, ''),
+(4, '0934078494', 'Juls', 'Myrmiy', '', NULL, 0, 0, 0.00, NULL, ''),
+(5, '', '', '', '', NULL, 0, 0, 0.00, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -377,11 +341,6 @@ CREATE TABLE IF NOT EXISTS `user_role` (
   `name` char(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
---
--- Очистить таблицу перед добавлением данных `user_role`
---
-
-TRUNCATE TABLE `user_role`;
 --
 -- Дамп данных таблицы `user_role`
 --
@@ -463,7 +422,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT для таблицы `food`
 --
 ALTER TABLE `food`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT для таблицы `food__category`
 --
@@ -473,12 +432,12 @@ ALTER TABLE `food__category`
 -- AUTO_INCREMENT для таблицы `locations`
 --
 ALTER TABLE `locations`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT для таблицы `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT для таблицы `order__status`
 --
@@ -493,7 +452,7 @@ ALTER TABLE `photo`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT для таблицы `user_role`
 --

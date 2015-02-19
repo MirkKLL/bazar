@@ -111,4 +111,23 @@ Class Cart_model extends CI_Model
         }
     }
 
+    public function get_order_status_view($active = 0)
+    {
+        $sSql = "SELECT * FROM order__status WHERE 1";
+        $aData = $this->db->query($sSql);
+        $aResult = $aData->result_array();
+        $sResult = "<select class='form-control' name = 'order_status'>";
+        foreach ($aResult as $key => $value) {
+            $name = $value['name'];
+            $id = $value['id'];
+            $alt = $value['short'];
+
+            $selected = $active == $id ? 'selected' : '';
+
+            $sResult .= "<option value = '$id' alt = '$alt'  $selected>$name</option>";            
+        }
+        $sResult .= "</select>";
+        return $sResult;
+    }
+
 }

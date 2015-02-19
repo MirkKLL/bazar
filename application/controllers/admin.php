@@ -88,8 +88,9 @@ class Admin extends CI_Controller {
 			$data['links'] = $this->show_links();
 			$this->load->view('header');
 			$this->load->view('navbar');
-
+			print_r($this->input->post());
 			$data['order'] = $this->cart_model->get_order($id);
+			$data['order_status'] = $this->cart_model->get_order_status_view($data['order']['status']);
 			$this->load->view('admin/order_edit', $data);
 
 			$this->load->view('footer');
