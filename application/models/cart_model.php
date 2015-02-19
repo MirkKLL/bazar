@@ -167,4 +167,12 @@ Class Cart_model extends CI_Model
 
     }
 
+    public function update_order_detail($iOrderId, $aData)
+    {
+        //Array ( [1] => 1 [2] => 3 )
+        foreach ($aData as $food_id => $qty) {
+            # code...
+        }
+    }
+
 }

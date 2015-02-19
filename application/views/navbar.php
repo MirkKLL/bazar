@@ -30,27 +30,30 @@
                 <li><a href="<?=site_url();?>"><span class="glyphicon glyphicon-info-sign"></span> Оплата и доставка</a>
                 </li>
                 <li>
+                    <?php if(empty($this->session->userdata('logged_in'))) { ?>
                     <a href="<?=site_url()?>/login"><span class="glyphicon glyphicon-user"></span> 
-                        <?php if(empty($this->session->userdata('logged_in'))) { ?>
                         Войти 
                         <?php }else {
-                            $phone = $this->session->userdata('logged_in');
-                            $phone = $phone['phone'];
-                            echo $phone;
-                        } ?>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?=site_url();?>/cart">
-                        <!-- <span class="badge"><?=$this->cart->total_items()?></span> -->
-                        <span class="glyphicon glyphicon-shopping-cart cart_amount a"></span> 
-                        <span id="cart_amount" class="cart_amount text-muted"><?=$this->cart->total()?></span> <span class="text-muted">грн</span></a>
+                            ?>
+                            <a href="<?=site_url()?>/admin"><span class="glyphicon glyphicon-user"></span> 
+                                <?php
+                                $phone = $this->session->userdata('logged_in');
+                                $phone = $phone['phone'];
+                                echo $phone;
+                            } ?>
+                        </a>
                     </li>
+                    <li>
+                        <a href="<?=site_url();?>/cart">
+                            <!-- <span class="badge"><?=$this->cart->total_items()?></span> -->
+                            <span class="glyphicon glyphicon-shopping-cart cart_amount a"></span> 
+                            <span id="cart_amount" class="cart_amount text-muted"><?=$this->cart->total()?></span> <span class="text-muted">грн</span></a>
+                        </li>
 
 
-                </ul>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
             </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
+            <!-- /.container-fluid -->
+        </nav>

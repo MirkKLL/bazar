@@ -90,6 +90,11 @@ class Admin extends CI_Controller {
 			$this->load->view('navbar');
 			if (!empty($this->input->post())) {
 				$this->cart_model->order_update($this->input->post());
+				
+				//if something in order details were changed
+				if ($this->input->post('changed') == "yes") {
+					$this->cart_model->update_order_detail($id, $this->input->post('amount'));
+				}
 			}
 			$data['order'] = $this->cart_model->get_order($id);
 			$data['order_status'] = $this->cart_model->get_order_status_view($data['order']['status']);

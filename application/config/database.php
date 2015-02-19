@@ -45,24 +45,42 @@
 | the active record class
 */
 
-$active_group = 'default';
+$active_group = 'pc';
+$active_group = 'laptop';
+
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'baza';
-$db['default']['dbdriver'] = 'mysql';
-$db['default']['dbprefix'] = '';
-$db['default']['pconnect'] = TRUE;
-$db['default']['db_debug'] = TRUE;
-$db['default']['cache_on'] = FALSE;
-$db['default']['cachedir'] = '';
-$db['default']['char_set'] = 'utf8';
-$db['default']['dbcollat'] = 'utf8_general_ci';
-$db['default']['swap_pre'] = '';
-$db['default']['autoinit'] = TRUE;
-$db['default']['stricton'] = FALSE;
+$db['pc']['hostname'] = 'localhost';
+$db['pc']['username'] = 'root';
+$db['pc']['password'] = '';
+$db['pc']['database'] = 'baza';
+$db['pc']['dbdriver'] = 'mysql';
+$db['pc']['dbprefix'] = '';
+$db['pc']['pconnect'] = TRUE;
+$db['pc']['db_debug'] = TRUE;
+$db['pc']['cache_on'] = FALSE;
+$db['pc']['cachedir'] = '';
+$db['pc']['char_set'] = 'utf8';
+$db['pc']['dbcollat'] = 'utf8_general_ci';
+$db['pc']['swap_pre'] = '';
+$db['pc']['autoinit'] = TRUE;
+$db['pc']['stricton'] = FALSE;
+
+$db['laptop']['hostname'] = 'localhost';
+$db['laptop']['username'] = 'root';
+$db['laptop']['password'] = '454';
+$db['laptop']['database'] = 'baza';
+$db['laptop']['dbdriver'] = 'mysql';
+$db['laptop']['dbprefix'] = '';
+$db['laptop']['pconnect'] = TRUE;
+$db['laptop']['db_debug'] = TRUE;
+$db['laptop']['cache_on'] = FALSE;
+$db['laptop']['cachedir'] = '';
+$db['laptop']['char_set'] = 'utf8';
+$db['laptop']['dbcollat'] = 'utf8_general_ci';
+$db['laptop']['swap_pre'] = '';
+$db['laptop']['autoinit'] = TRUE;
+$db['laptop']['stricton'] = FALSE;
 
 
 /* End of file database.php */
