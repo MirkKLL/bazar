@@ -93,7 +93,12 @@ class Admin extends CI_Controller {
 				
 				//if something in order details were changed
 				if ($this->input->post('changed') == "yes") {
-					$this->cart_model->update_order_detail($id, $this->input->post('amount'));
+					$updated = $this->cart_model->update_order_detail($id, $this->input->post('amount'));
+					if ($updated) {
+						$this->load->view('alert/success', array('msg' => "Успешно обновлено"));
+					}else{
+						$this->load->view('alert/danger', array('msg' => "Проблемы при сохранении"));
+					}
 				}
 			}
 			$data['order'] = $this->cart_model->get_order($id);

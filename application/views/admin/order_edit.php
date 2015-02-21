@@ -67,16 +67,6 @@
 				<input type="submit" value="Save order" class="btn btn-success">
 
 			</form>
-			
-			<?php 
-			echo "<pre>";
-			//var_dump($order);
-			var_dump($_POST);
-			echo "--------- details ------------";
-			var_dump($order_details);
-			echo "</pre>";
-
-			?>
 		</div>
 	</div>
 </div>
