@@ -28,4 +28,15 @@ Class Product_model extends CI_Model
 			$this->db->insert('food', $aData);
 		}
 	}
+
+
+	public function get_food_by_owner($owner_id = 0)
+	{
+    	$sSql = "SELECT f.id, f.name, f.amount, f.measure, f.last_price, f.prod_date, f.expire_date
+    	FROM food f";
+    	if ($owner_id >0) {
+    		$sSql .= "";
+    	}
+	}
+
 }

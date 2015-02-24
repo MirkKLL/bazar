@@ -70,4 +70,21 @@ Class User extends CI_Model
    $this->db->insert('locations', $data); 
    return $this->db->insert_id();
  }
+
+ public function get_users_by_role($role_id = 1)
+ {
+   $sSql = "SELECT id, first_name, last_name, phone 
+   FROM `users`
+   WHERE role_id = $role_id
+   AND blocked = 0
+   ";
+
+   $aData = $this->db->query($sSql);
+   $aResult = $aData->result_array();
+   if (!empty($aResult)) {
+    return $aResult;
+  }else{
+    return false;
+  }
+}
 }

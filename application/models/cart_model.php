@@ -236,4 +236,5 @@ public function update_order_price($order_id, $price)
     $this->db->query($sSql);
 }
 
+
 }

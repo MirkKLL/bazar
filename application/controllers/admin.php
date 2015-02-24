@@ -12,6 +12,7 @@ class Admin extends CI_Controller {
 		  $this->load->model('group_model','',TRUE);
 		  $this->load->model('product_model','',TRUE);
 		  $this->load->model('cart_model','',TRUE);
+		  $this->load->model('user','',TRUE);
 		}
 
 		public function index($page = "", $message = "")
@@ -37,7 +38,7 @@ class Admin extends CI_Controller {
 				<li><a href='$url/admin/'>Главная</a></li>
 				<li><a href='$url/admin/add_product'>Добавить продукт</a></li>
 				<li><a href='$url/admin/orders'>Список закоазов</a></li>
-				<li><a href='$url/admin'></a></li>
+				<li><a href='$url/admin/prices'>Цены</a></li>
 				<li><a href='$url/admin'></a></li>
 			</ul>
 
@@ -50,6 +51,7 @@ class Admin extends CI_Controller {
 			$data['phone'] = $session_data['phone'];
 			$data['links'] = $this->show_links();
 			$data['categories'] = $this->group_model->get_all_categories();
+			$data['owners'] = $this->user->get_users_by_role('2');
 			$this->load->view('header');
 			$this->load->view('navbar');
 			if(!empty($this->input->post())){
@@ -108,5 +110,20 @@ class Admin extends CI_Controller {
 
 			$this->load->view('footer');
 
+		}
+
+		public function prices($owner='all')
+		{
+			$session_data = $this->session->userdata('logged_in');
+			$data['phone'] = $session_data['phone'];
+			$data['links'] = $this->show_links();
+			$data['prices'] = $this->product_model->get_food_by_owner();
+			$this->load->view('header');
+			$this->load->view('navbar');
+
+
+			$this->load->view('admin/prices', $data);
+
+			$this->load->view('footer');
 		}
 	}
