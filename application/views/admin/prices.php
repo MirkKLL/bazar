@@ -22,8 +22,8 @@
 								<td><?=$price->name?></td>
 								<td><?=$price->last_name?> | <?=$price->first_name?></td>
 								<td><?=$price->amount?> | <?=$price->measure?></td>
-								<td><input class="form-control" type = "date" name= "expire" value="<?=$price->prod_date?>" ></td>
-								<td><input class="form-control" type = "date" name= "expire" value="<?=$price->expire_date?>" ></td>
+								<td><input class="form-control update_prod_date" type = "date" name= "prod" value="<?=$price->prod_date?>"  data-id = "<?=$price->id?>"></td>
+								<td><input class="form-control update_expire" type = "date" name= "expire" value="<?=$price->expire_date?>"  data-id = "<?=$price->id?>"></td>
 								<td><input class="form-control update_price" name= "price" value="<?=$price->last_price?>" style = "max-width:130px;" data-id = "<?=$price->id?>"></td>
 							</tr>
 						<?php endforeach; ?>
@@ -36,7 +36,6 @@
 <script>
 	
 	function update_price () {
-		console.log(this.getAttribute('data-id'));
 		$.post(
 			"<?=base_url();?>index.php/ajax/update_price",
 			{
@@ -60,4 +59,38 @@
                   }
               }
 
-</script>
+              function update_expire () {
+              	$.post(
+              		"<?=base_url();?>index.php/ajax/update_expire",
+              		{
+              			id: this.getAttribute('data-id'),
+              			expire: this.value
+              		},
+              		onAjaxSuccess
+              		);
+
+              	function onAjaxSuccess(data)
+              	{
+              		console.log('done');
+
+              	}
+              }
+
+              function update_prod_date () {
+              	$.post(
+              		"<?=base_url();?>index.php/ajax/update_prod_date",
+              		{
+              			id: this.getAttribute('data-id'),
+              			prod: this.value
+              		},
+              		onAjaxSuccess
+              		);
+
+              	function onAjaxSuccess(data)
+              	{
+              		console.log('done');
+
+              	}
+              }
+
+          </script>

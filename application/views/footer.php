@@ -87,7 +87,9 @@
                       //#9d9d9d
                     }
                   })
-$('.update_price').change(update_price)
+$('.update_price').change(update_price);
+$('.update_expire').change(update_expire);
+$('.update_prod_date').change(update_prod_date);
 
  });
 

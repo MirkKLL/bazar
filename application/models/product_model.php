@@ -55,7 +55,7 @@ Class Product_model extends CI_Model
 	public function update_product($product_id, $field_name, $new_value)
 	{
 		$sSql = "UPDATE food
-			SET $field_name = $new_value
+			SET $field_name = '$new_value'
 			WHERE id = $product_id
 		";
 
