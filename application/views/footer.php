@@ -87,11 +87,13 @@
                       //#9d9d9d
                     }
                   })
+$('.update_price').change(update_price)
+
  });
 
 function set_changed () {
-    $('#changed').val("yes");
-  }
+  $('#changed').val("yes");
+}
 </script>
 </body>
 

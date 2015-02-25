@@ -55,7 +55,7 @@ class Admin extends CI_Controller {
 			$this->load->view('header');
 			$this->load->view('navbar');
 			if(!empty($this->input->post())){
-				$this->product_model->update_product($this->input->post());
+				$this->product_model->add_product($this->input->post());
 				$this->load->view('alert/success', array('msg' => "Успешно обновлено"));
 			}
 
