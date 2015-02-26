@@ -39,19 +39,29 @@ class Group extends CI_Controller {
 		if (empty($aData)) {
 			return "<h2>Извините, продукты в данной категории временно недоступны.</h2>";
 		}
+
+		$aImg = $this->group_model->get_images("bootstrap/img/groups/");
+
 		foreach ($aData as $key) {
 			$id = $key->id;
 			$name = $key->name;
 			$description = $key->description;
+
+			if (empty($aImg[$id])) {
+				$image = base_url()."bootstrap/img/no_img.jpg";
+			}else{
+				$image =  base_url()."bootstrap/img/groups/$id.jpg";
+			}
+
 			$aResult .= '
 			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 				<div class="thumbnail">
-					<img src="http://placehold.it/320x220" 
-					alt="..." 
+					<img src="'.$image.'" 
+					alt="'.$name.'" 
 					style="height: 180px; width: 100%; display: block;" 
 					>
 					<div class="caption text-center">
-						<h3><a href="'.site_url().'/product/category/'.$id.'">'.$name.'</a></h3>
+						<h3><a href="'.site_url().'product/category/'.$id.'">'.$name.'</a></h3>
 					</div>
 				</div>
 			</div>

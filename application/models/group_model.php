@@ -92,7 +92,7 @@ Class Group_model extends CI_Model{
 									$c_id = $key->id;
 									$c_name = $key->name;
 									$selected = ($c_id == $category_id ? '* ' : '');
-									$sResult .= "<li><a href='$url/product/category/$c_id'>$selected $c_name $selected</a></li>";
+									$sResult .= "<li><a href='$url"."product/category/$c_id'>$selected $c_name $selected</a></li>";
 								}
 							}
 							

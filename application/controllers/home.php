@@ -46,7 +46,7 @@ class Home extends CI_Controller {
 					data-toggle="tooltip" 
 					data-placement="left" title="'.$description.'">
 					<div class="caption text-center">
-						<h3><a href="'.site_url().'/group/categories/'.$id.'">'.$name.'
+						<h3><a href="'.site_url().'group/categories/'.$id.'">'.$name.'
 						</a></h3>
 					</div>
 				</div>
