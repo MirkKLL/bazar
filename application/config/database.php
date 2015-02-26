@@ -45,8 +45,8 @@
 | the active record class
 */
 
-$active_group = 'laptop';
 $active_group = 'pc';
+$active_group = 'laptop';
 
 $active_record = TRUE;
 

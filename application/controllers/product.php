@@ -67,7 +67,7 @@ class Product extends CI_Controller {
 				</div>
 
 				<div class="row">
-					<div class="col-xs-2 col-sm-3 col-md-2">
+					<div class="col-xs-6 col-sm-6 col-md-6">
 						<button type="button" class="btn btn-info btn-sm pull-left" 
 						data-container="body" 
 						data-toggle="popover" data-placement="bottom" 
@@ -78,9 +78,9 @@ class Product extends CI_Controller {
 						<span class="glyphicon glyphicon-info-sign"></span>
 					</button>
 				</div>
-				<div class="col-xs-5 col-sm-5 col-md-6">
+				<!-- <div class="col-xs-5 col-sm-5 col-md-6">
 
-					<!-- <div class="input-group input-group-sm">
+					 <div class="input-group input-group-sm">
 					<span class="input-group-btn">
 						<button class="btn btn-default btn-danger" type="button"><span class="glyphicon glyphicon-minus-sign"></span></button>
 					</span>
@@ -88,13 +88,12 @@ class Product extends CI_Controller {
 					<span class="input-group-btn">
 						<button class="btn btn-default btn-primary" type="button"><span class="glyphicon glyphicon-plus-sign"></span></button>
 					</span>
-				</div> -->
-				<!-- /input-group -->
-			</div>
-			<div class="col-xs-2 col-sm-2 col-md-2"  style="padding:5px;">
+				</div> 
+			</div> -->
+			<div class="col-xs-3 col-sm-3 col-md-3"  style="padding:5px;">
 				<span><b>'.$amount." ".$measure.'</b></span>
 			</div>
-			<div class="col-xs-2 col-sm-2 col-md-2">
+			<div class="col-xs-3 col-sm-3 col-md-3">
 				<button type="button" class="btn btn-success btn-sm pull-right add_to_cart" 
 				data-id = '.$id.'
 				data-name = "'.$name.'""
