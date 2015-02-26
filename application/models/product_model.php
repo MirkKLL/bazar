@@ -9,6 +9,7 @@ Class Product_model extends CI_Model
 		$this -> db -> select('*');
 		$this -> db -> from('food');
 		$this -> db -> where('category', $group_id);
+		$this -> db -> where('is_active', 1);
 
 		$query = $this -> db -> get();
 
