@@ -63,7 +63,6 @@ class Ajax extends CI_Controller {
 
  		$product_id = $this->input->post('id');
  		$expire = $this->input->post('expire');
- 		echo "$expire";
  		$this->product_model->update_product($product_id, 'expire_date', $expire);
  	}
 

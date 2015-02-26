@@ -126,4 +126,24 @@ Class Group_model extends CI_Model{
 				return false;
 			}
 		}
+
+		public function get_images($path = '')
+		{
+			$dir = "./$path";
+			
+			$dh  = opendir($dir);
+			while (false !== ($filename = readdir($dh))) {
+				if ($filename != "." && $filename != "..") {
+					$files[] = $filename;
+				}
+			}
+
+			$aResult = array();
+
+			foreach ($files as $key => $value) {
+				$res = explode(".", $value);
+				$aResult[$res[0]] = true;
+			}
+			return $aResult;
+		}
 	}
