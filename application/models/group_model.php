@@ -6,6 +6,7 @@ Class Group_model extends CI_Model{
 		$this -> db -> select('id, name, description');
 		$this -> db -> from('food__category');
 		$this -> db -> where('parent_id', '0');
+		$this -> db -> where('is_active', '1');
 
 		$query = $this -> db -> get();
 
@@ -24,6 +25,7 @@ Class Group_model extends CI_Model{
 		$this -> db -> select('id, name, description');
 		$this -> db -> from('food__category');
 		$this -> db -> where('parent_id', $group_id);
+		$this -> db -> where('is_active', '1');
 
 		$query = $this -> db -> get();
 

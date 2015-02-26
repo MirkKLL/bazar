@@ -17,9 +17,10 @@ class Ajax extends CI_Controller {
 		  	redirect('login', 'refresh');
 		  }
 		}
+
 		public function add_item()
 		{
-			$this->admin();
+			//$this->admin();
 			$cart = $this->cart->contents();
 			$id = intval($this->input->post("id"));
 			$measure = $this->input->post('measure');
