@@ -35,11 +35,11 @@ class Admin extends CI_Controller {
 			$url = site_url();
 			return "
 			<ul>
-				<li><a href='$url/admin/'>Главная</a></li>
-				<li><a href='$url/admin/add_product'>Добавить продукт</a></li>
-				<li><a href='$url/admin/orders'>Список закоазов</a></li>
-				<li><a href='$url/admin/prices'>Цены</a></li>
-				<li><a href='$url/admin'></a></li>
+				<li><a href='$url"."admin/'>Главная</a></li>
+				<li><a href='$url"."admin/add_product'>Добавить продукт</a></li>
+				<li><a href='$url"."admin/orders'>Список закоазов</a></li>
+				<li><a href='$url"."admin/prices'>Цены</a></li>
+				<li><a href='$url"."admin'></a></li>
 			</ul>
 
 			";

@@ -61,13 +61,13 @@ class Product extends CI_Controller {
 			<div class="thumbnail">
 				<img src="http://placehold.it/320x220" alt="">
 				<div class="caption product_caption">
-					<h4 class="pull-right">'.$price.' грн.</h4>
+					<h4 class="pull-right"><b>'.$price.' грн. </b></h4>
 					<h4>'.$name.'</h4>
 					<p>'.$desc.'</p>
 				</div>
 
 				<div class="row">
-					<div class="col-xs-6 col-sm-6 col-md-6">
+					<div class="col-xs-3 col-sm-3 col-md-3">
 						<button type="button" class="btn btn-info btn-sm pull-left" 
 						data-container="body" 
 						data-toggle="popover" data-placement="bottom" 
@@ -79,8 +79,7 @@ class Product extends CI_Controller {
 					</button>
 				</div>
 				<!-- <div class="col-xs-5 col-sm-5 col-md-6">
-
-					 <div class="input-group input-group-sm">
+				<div class="input-group input-group-sm">
 					<span class="input-group-btn">
 						<button class="btn btn-default btn-danger" type="button"><span class="glyphicon glyphicon-minus-sign"></span></button>
 					</span>
@@ -93,7 +92,7 @@ class Product extends CI_Controller {
 			<div class="col-xs-3 col-sm-3 col-md-3"  style="padding:5px;">
 				<span><b>'.$amount." ".$measure.'</b></span>
 			</div>
-			<div class="col-xs-3 col-sm-3 col-md-3">
+			<div class="col-xs-6 col-sm-6 col-md-6">
 				<button type="button" class="btn btn-success btn-sm pull-right add_to_cart" 
 				data-id = '.$id.'
 				data-name = "'.$name.'""
@@ -101,7 +100,7 @@ class Product extends CI_Controller {
 				data-price = "'.$price.'"
 				data-measure = "'.$measure.'"
 
-				> <span class="glyphicon glyphicon-shopping-cart"></span></button>
+				> <span class="glyphicon glyphicon-shopping-cart"></span> В корзину</button>
 			</div>
 		</div>
 

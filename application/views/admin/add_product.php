@@ -4,6 +4,7 @@
 		<div class="col-md-8">
 			<form class = "form" role="form" method="POST" action="<?=site_url()?>/admin/add_product">
 				<input type="text" class="form-control" name="name" placeholder="Название">
+				<input type="hidden"  name="is_active" value="1">
 				<br />
 				<textarea class="form-control" name="description" placeholder="Описание" rows = "3"></textarea>
 				<br />
@@ -19,6 +20,9 @@
 				</label>
 				<label class="checkbox-inline">
 					<input type="checkbox" name = "measure" value="кг."> кг.
+				</label>
+				<label class="checkbox-inline">
+					<input type="checkbox" name = "measure" value="г."> г.
 				</label>
 				<br />
 				<div class="form-group">
