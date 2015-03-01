@@ -33,7 +33,7 @@ Class Product_model extends CI_Model
 
 	public function get_food_by_owner($owner_id = 0)
 	{
-		$sSql = "SELECT f.id, f.name, f.amount, f.measure, f.last_price, f.prod_date, f.expire_date, u.first_name, u.last_name
+		$sSql = "SELECT f.id, f.name, f.amount, f.measure, f.last_price, f.prod_date, f.expire_date, f.is_active, u.first_name, u.last_name
 		FROM food f
 		INNER JOIN `users` u 
 		ON f.owner_id = u.id

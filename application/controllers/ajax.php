@@ -76,4 +76,12 @@ class Ajax extends CI_Controller {
  		$this->product_model->update_product($product_id, 'prod_date', $prod);
  	}
 
+ 	public function update_active_food()
+ 	{
+ 		$this->admin();
+ 		$id = $this->input->post('id');
+ 		$checked = $this->input->post('is_active') == 'false' ? '0' : '1';
+ 		$this->product_model->update_product($id, 'is_active', $checked);
+ 	}
+
  }

@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-4"><?=$links?></div>
-		<div class="col-md-8">
+		<div class="col-md-2"><?=$links?></div>
+		<div class="col-md-10">
 			<form method="POST" action="<?=site_url()?>prices">
 				<table class="table table-striped table-hover">
 					<thead>
@@ -13,6 +13,7 @@
 							<td>Выпущено</td>
 							<td>Годно</td>
 							<td>Цена грн.</td>
+							<td>Активно</td>
 						</tr>
 					</thead>
 					<tbody>
@@ -24,31 +25,36 @@
 								<td><?=$price->amount?> | <?=$price->measure?></td>
 								<td><input class="form-control update_prod_date" type = "date" name= "prod" value="<?=$price->prod_date?>"  data-id = "<?=$price->id?>"></td>
 								<td><input class="form-control update_expire" type = "date" name= "expire" value="<?=$price->expire_date?>"  data-id = "<?=$price->id?>"></td>
-								<td><input class="form-control update_price" name= "price" value="<?=$price->last_price?>" style = "max-width:130px;" data-id = "<?=$price->id?>"></td>
-							</tr>
-						<?php endforeach; ?>
-					</tbody>
-				</table>
-			</form>
+								<td><input class="form-control update_price" name= "price" value="<?=$price->last_price?>" style = "max-width:100px;" data-id = "<?=$price->id?>"></td>
+								<td><input class="form-control update_active" type = "checkbox" name= "active" value="<?=$price->last_price?>" style = "width:15px; height:15px; margin-top:10px;" data-id = "<?=$price->id?>"
+									<?php 
+									echo $price->is_active > 0 ? 'checked' : '';
+									?>
+									></td>
+								</tr>
+							<?php endforeach; ?>
+						</tbody>
+					</table>
+				</form>
+			</div>
 		</div>
 	</div>
-</div>
-<script>
-	
-	function update_price () {
-		$.post(
-			"<?=base_url();?>index.php/ajax/update_price",
-			{
-				id: this.getAttribute('data-id'),
-				price: this.value
-			},
-			onAjaxSuccess
-			);
+	<script>
 
-		function onAjaxSuccess(data)
-		{
-			console.log('done');
-			return;
+		function update_price () {
+			$.post(
+				"<?=base_url();?>index.php/ajax/update_price",
+				{
+					id: this.getAttribute('data-id'),
+					price: this.value
+				},
+				onAjaxSuccess
+				);
+
+			function onAjaxSuccess(data)
+			{
+				console.log('done');
+				return;
                // Здесь мы получаем данные, отправленные сервером и выводим их на экран.
                $('.cart_amount').addClass("text-success");
                $('#cart_amount').text(data);
@@ -93,4 +99,21 @@
               	}
               }
 
+              function update_active () {
+              	var checked = $(this).is(":checked");
+              	$.post(
+              		"<?=base_url();?>index.php/ajax/update_active_food",
+              		{
+              			id: this.getAttribute('data-id'),
+              			is_active: this.checked
+              		},
+              		onAjaxSuccess
+              		);
+
+              	function onAjaxSuccess(data)
+              	{
+              		console.log('done');
+
+              	}
+              }
           </script>

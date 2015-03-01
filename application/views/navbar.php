@@ -27,7 +27,7 @@
             </form>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?=site_url();?>"><span class="glyphicon glyphicon-info-sign"></span> Оплата и доставка</a>
+                <li><a href="<?=site_url();?>delivery"><span class="glyphicon glyphicon-info-sign"></span> Оплата и доставка</a>
                 </li>
                 <li>
                     <?php if(empty($this->session->userdata('logged_in'))) { ?>
