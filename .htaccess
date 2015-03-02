@@ -1,3 +1,5 @@
 RewriteEngine on
 RewriteCond $1 !^(index\.php|bootstrap|robots\.txt|pma)
-RewriteRule ^(.*)$ /index.php/$1 [L]
+RewriteRule ^(.*)$ /index.php?/$1 [L]
+php_value error_reporting 7
+php_flag display_errors On

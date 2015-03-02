@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Фев 26 2015 г., 20:23
+-- Время создания: Мар 02 2015 г., 20:18
 -- Версия сервера: 5.5.41-0ubuntu0.14.04.1
 -- Версия PHP: 5.5.9-1ubuntu4.6
 
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `food` (
   `description` varchar(512) NOT NULL,
   `photo_id` int(5) NOT NULL,
   `amount` float NOT NULL,
-  `measure` enum('л.','кг.','шт.') NOT NULL,
+  `measure` enum('л.','кг.','шт.','г.') NOT NULL,
   `category` int(2) NOT NULL,
   `owner_id` int(8) NOT NULL,
   `last_price` float NOT NULL,
@@ -35,16 +35,17 @@ CREATE TABLE IF NOT EXISTS `food` (
   `expire_date` date NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `is_active` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `food`
 --
 
 INSERT INTO `food` (`id`, `name`, `description`, `photo_id`, `amount`, `measure`, `category`, `owner_id`, `last_price`, `prod_date`, `expire_date`, `updated_at`, `is_active`) VALUES
-(1, 'Молоко домашнее', 'Коровье, жирное', 1, 1, 'л.', 15, 4, 19.54, '2015-02-27', '2015-02-28', '2015-02-26 17:47:54', 1),
-(2, 'Творог домашний 15%', '15% жирность', 2, 0.1, 'кг.', 16, 5, 4, '2015-01-01', '2015-03-31', '2015-02-26 18:02:27', 1),
-(3, 'Творог домашний 20%', '20% жирности', 0, 0.1, 'кг.', 16, 4, 4.5, '2015-02-23', '2015-02-25', '2015-02-26 18:02:31', 1);
+(1, 'Молоко домашнее', 'Коровье, жирное', 1, 1, 'л.', 15, 4, 19.54, '2015-02-27', '2015-02-28', '2015-03-01 21:47:00', 1),
+(2, 'Творог домашний 15', '15% жирность', 2, 1, 'кг.', 16, 5, 4, '2015-01-01', '2015-03-31', '2015-02-26 21:47:39', 1),
+(3, 'Творог домашний 20', '20% жирности', 0, 1, 'кг.', 16, 4, 4.5, '2015-02-23', '2015-02-25', '2015-03-01 21:47:01', 1),
+(4, 'Сметана домашняя', 'Густая', 0, 1, 'кг.', 17, 4, 18, '2015-02-28', '2015-03-08', '2015-03-01 21:47:02', 1);
 
 -- --------------------------------------------------------
 
@@ -379,7 +380,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT для таблицы `food`
 --
 ALTER TABLE `food`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT для таблицы `food__category`
 --

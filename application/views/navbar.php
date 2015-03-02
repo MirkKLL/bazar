@@ -30,7 +30,7 @@
                 <li><a href="<?=site_url();?>delivery"><span class="glyphicon glyphicon-info-sign"></span> Оплата и доставка</a>
                 </li>
                 <li>
-                    <?php if(empty($this->session->userdata('logged_in'))) { ?>
+                    <?php if(!$this->session->userdata('logged_in')) { ?>
                     <a href="<?=site_url()?>/login"><span class="glyphicon glyphicon-user"></span> 
                         Войти 
                         <?php }else {

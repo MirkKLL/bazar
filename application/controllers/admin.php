@@ -54,7 +54,7 @@ class Admin extends CI_Controller {
 			$data['owners'] = $this->user->get_users_by_role('2');
 			$this->load->view('header');
 			$this->load->view('navbar');
-			if(!empty($this->input->post())){
+			if(($this->input->post('id'))){
 				$this->product_model->add_product($this->input->post());
 				$this->load->view('alert/success', array('msg' => "Успешно обновлено"));
 			}
@@ -90,7 +90,7 @@ class Admin extends CI_Controller {
 			$data['links'] = $this->show_links();
 			$this->load->view('header');
 			$this->load->view('navbar');
-			if (!empty($this->input->post())) {
+			if (($this->input->post('order_id'))) {
 				$this->cart_model->order_update($this->input->post());
 				
 				//if something in order details were changed
