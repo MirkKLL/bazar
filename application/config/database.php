@@ -84,7 +84,7 @@ $db['laptop']['autoinit'] = TRUE;
 $db['laptop']['stricton'] = FALSE;
 
 $db['prod']['hostname'] = 'localhost';
-$db['prod']['username'] = 'eurokha';
+$db['prod']['username'] = 'eurokhua';
 $db['prod']['password'] = '';
 $db['prod']['database'] = 'eurokha_main';
 $db['prod']['dbdriver'] = 'mysql';
