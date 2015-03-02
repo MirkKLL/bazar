@@ -47,6 +47,7 @@
 
 $active_group = 'pc';
 $active_group = 'laptop';
+$active_group = 'prod';
 
 $active_record = TRUE;
 
@@ -81,6 +82,22 @@ $db['laptop']['dbcollat'] = 'utf8_general_ci';
 $db['laptop']['swap_pre'] = '';
 $db['laptop']['autoinit'] = TRUE;
 $db['laptop']['stricton'] = FALSE;
+
+$db['prod']['hostname'] = 'localhost';
+$db['prod']['username'] = 'eurokha';
+$db['prod']['password'] = '';
+$db['prod']['database'] = 'eurokha_main';
+$db['prod']['dbdriver'] = 'mysql';
+$db['prod']['dbprefix'] = '';
+$db['prod']['pconnect'] = TRUE;
+$db['prod']['db_debug'] = TRUE;
+$db['prod']['cache_on'] = FALSE;
+$db['prod']['cachedir'] = '';
+$db['prod']['char_set'] = 'utf8';
+$db['prod']['dbcollat'] = 'utf8_general_ci';
+$db['prod']['swap_pre'] = '';
+$db['prod']['autoinit'] = TRUE;
+$db['prod']['stricton'] = FALSE;
 
 
 /* End of file database.php */
