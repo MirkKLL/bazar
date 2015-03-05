@@ -45,7 +45,9 @@ class Admin extends CI_Controller {
 				if ($this->_user_role == 'ADMIN') {
 					$sResult .= "
 					<li><a href='$url"."admin/add_product'>Добавить продукт</a></li>
+					<li><a href='$url"."admin/no_images'>Картинки</a></li>
 					<li><a href='$url"."admin/prices'>Цены</a></li>
+					<li></li>
 					<li></li>
 					<li><a href = 'http://atom3.goodnet.com.ua:2222/' target = '_blank'>Хостинг</a></li>
 					<li></li>
@@ -62,8 +64,7 @@ class Admin extends CI_Controller {
 				if ($this->_user_role != 'ADMIN') {
 					return "Only for admin";
 				}
-				$session_data = $this->session->userdata('logged_in');
-				$data['phone'] = $session_data['phone'];
+				
 				$data['links'] = $this->show_links();
 				$data['categories'] = $this->group_model->get_all_categories();
 				$data['owners'] = $this->user->get_users_by_role('2');
@@ -81,8 +82,6 @@ class Admin extends CI_Controller {
 
 			public function orders($status='new')
 			{
-				$session_data = $this->session->userdata('logged_in');
-				$data['phone'] = $session_data['phone'];
 				$data['links'] = $this->show_links();
 			//$data['categories'] = $this->group_model->get_all_categories();
 				$this->load->view('header');
@@ -106,9 +105,6 @@ class Admin extends CI_Controller {
 			{
 				$id = intval($id);
 				
-
-				$session_data = $this->session->userdata('logged_in');
-				$data['phone'] = $session_data['phone'];
 				$data['links'] = $this->show_links();
 				$order = $this->cart_model->get_order($id);
 
@@ -145,8 +141,7 @@ class Admin extends CI_Controller {
 				if ($this->_user_role != 'ADMIN') {
 					return "Only for admin";
 				}
-				$session_data = $this->session->userdata('logged_in');
-				$data['phone'] = $session_data['phone'];
+				
 				$data['links'] = $this->show_links();
 				$data['prices'] = $this->product_model->get_food_by_owner();
 				$this->load->view('header');
@@ -156,5 +151,34 @@ class Admin extends CI_Controller {
 				$this->load->view('admin/prices', $data);
 
 				$this->load->view('footer');
+			}
+
+			public function no_images()
+			{
+				if ($this->_user_role != 'ADMIN') {
+					return "Only for admin";
+				}
+				
+				$this->load->view('header');
+				$this->load->view('navbar');
+				
+
+				$data['no_images'] = $this->check_no_image();
+				$this->load->view('admin/no_images', $data);
+
+				$this->load->view('footer');
+			}
+
+			public function check_no_image()
+			{
+				$aImg = $this->group_model->get_images("bootstrap/img/food/");
+				$aFood = $this->product_model->get_food_by_owner();
+				$aResult = array();
+				foreach ($aFood as $food) {
+					 if(!isset($aFood[$food->id])){
+					 	$aResult[$food->id]["name"] = $food->name;
+					 }
+				}
+				return $aResult;
 			}
 		}
