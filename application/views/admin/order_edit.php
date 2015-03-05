@@ -26,6 +26,10 @@
 					<label>Коментарии к заказу:</label>
 					<textarea name="coments" class="form-control" rows="2"><?=$order['coments']?></textarea>
 				</div>
+				<div class="form-group">
+					<label>Адрес доставки:</label>
+					<textarea name="address" class="form-control" rows="2"><?=$order['address']?></textarea>
+				</div>
 				<div class="row">
 					<div class="col-md-6">
 						<div class="form-group">

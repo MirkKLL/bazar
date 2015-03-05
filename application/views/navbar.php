@@ -31,7 +31,7 @@
                 </li>
                 <li>
                     <?php if(!$this->session->userdata('logged_in')) { ?>
-                    <a href="<?=site_url()?>/login"><span class="glyphicon glyphicon-user"></span> 
+                    <a href="<?=site_url()?>login"><span class="glyphicon glyphicon-user"></span> 
                         Войти 
                         <?php }else {
                             ?>

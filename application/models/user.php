@@ -87,4 +87,21 @@ Class User extends CI_Model
     return false;
   }
 }
+
+public function update_location($location_id, $field, $new_data)
+{
+  $sSql = "UPDATE `locations`
+    SET $field = '$new_data'
+    WHERE id = $location_id
+  ";
+  $this->db->query($sSql);
+}
+
+public function log($action_type, $changed_data)
+{
+  $sSql = "INSERT INTO `log`";
+}
+
+
+
 }

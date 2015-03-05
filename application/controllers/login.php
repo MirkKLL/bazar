@@ -40,12 +40,20 @@ class Login extends CI_Controller {
 	
 	function check_database($password)
 	{
-   //Field validation succeeded.  Validate against database
+   		//Field validation succeeded.  Validate against database
 		$phone = $this->input->post('phone');
 		
-   //query the database
+   		//query the database
 		$result = $this->user->login($phone, $password);
 
+		$role_name = array(
+			0 => "UNREGISTRED",
+			1 => "REGISTRED",
+			2 => "SELLER",
+			3 => "OPERATOR",
+			4 => "PACKER",
+			7 => "ADMIN"
+			);
 		if($result)
 		{
 			$sess_array = array();
@@ -54,7 +62,8 @@ class Login extends CI_Controller {
 				$sess_array = array(
 					'id' => $row->id,
 					'phone' => $row->phone,
-					'user_role' => $row->role_id
+					'user_role' => $row->role_id,
+					'role' => $role_name[$row->role_id]
 					);
 				$this->session->set_userdata('logged_in', $sess_array);
 			}
@@ -65,5 +74,11 @@ class Login extends CI_Controller {
 			$this->form_validation->set_message('check_database', 'Invalid username or password');
 			return false;
 		}
+	}
+
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect('login', 'refresh');
 	}
 }

@@ -47,6 +47,9 @@ class Product extends CI_Controller {
 			$aResult .= "Продукты в данной категории временно отсутствуют";
 			return $aResult;
 		}
+
+		$aImg = $this->group_model->get_images("bootstrap/img/food/");
+
 		foreach ($aData as $key) {
 			$id = $key->id;
 			$name = $key->name;
@@ -57,9 +60,16 @@ class Product extends CI_Controller {
 			$date_to = $key->expire_date;
 			$measure = $key->measure;
 			$amount = $key->amount;
+			//get image
+			if (empty($aImg[$id])) {
+				$image = base_url()."bootstrap/img/no_img.jpg";
+			}else{
+				$image =  base_url()."bootstrap/img/food/$id.jpg";
+			}
+
 			$aResult .= '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 			<div class="thumbnail">
-				<img src="http://placehold.it/320x220" alt="">
+				<img src="'.$image.'" alt="">
 				<div class="caption product_caption">
 					<h4 class="pull-right"><b>'.$price.' грн. </b></h4>
 					<h4>'.$name.'</h4>
