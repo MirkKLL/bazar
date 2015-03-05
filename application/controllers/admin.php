@@ -162,7 +162,7 @@ class Admin extends CI_Controller {
 				$this->load->view('header');
 				$this->load->view('navbar');
 				
-
+				$data['links'] = $this->show_links();
 				$data['no_images'] = $this->check_no_image();
 				$this->load->view('admin/no_images', $data);
 
@@ -175,9 +175,9 @@ class Admin extends CI_Controller {
 				$aFood = $this->product_model->get_food_by_owner();
 				$aResult = array();
 				foreach ($aFood as $food) {
-					 if(!isset($aFood[$food->id])){
-					 	$aResult[$food->id]["name"] = $food->name;
-					 }
+					if(!isset($aFood[$food->id])){
+						$aResult[$food->id]["name"] = $food->name;
+					}
 				}
 				return $aResult;
 			}
