@@ -73,7 +73,7 @@ Class User extends CI_Model
 
  public function get_users_by_role($role_id = 1)
  {
-   $sSql = "SELECT id, first_name, last_name, phone 
+   $sSql = "SELECT id, first_name, last_name, phone, notes
    FROM `users`
    WHERE role_id = $role_id
    AND blocked = 0

@@ -113,6 +113,7 @@ Class Group_model extends CI_Model{
 			$this -> db -> select('*');
 			$this -> db -> from('food__category');
 			$this -> db -> where('parent_id >', 0);
+			$this -> db -> where('is_active >', 0);
 
 			$query = $this -> db -> get();
 			$aResult = array();

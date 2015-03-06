@@ -70,7 +70,7 @@ class Admin extends CI_Controller {
 				$data['owners'] = $this->user->get_users_by_role('2');
 				$this->load->view('header');
 				$this->load->view('navbar');
-				if(($this->input->post('id'))){
+				if(($this->input->post('name'))){
 					$this->product_model->add_product($this->input->post());
 					$this->load->view('alert/success', array('msg' => "Успешно обновлено"));
 				}
@@ -175,7 +175,7 @@ class Admin extends CI_Controller {
 				$aFood = $this->product_model->get_food_by_owner();
 				$aResult = array();
 				foreach ($aFood as $food) {
-					if(!isset($aFood[$food->id])){
+					if(!isset($aImg[$food->id])){
 						$aResult[$food->id]["name"] = $food->name;
 					}
 				}
